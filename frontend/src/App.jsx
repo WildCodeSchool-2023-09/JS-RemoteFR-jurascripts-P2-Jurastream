@@ -1,41 +1,30 @@
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
-
-import "./App.css";
+import "./App.scss";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
+    <nav className="App">
+      <h1>My App Page</h1>
+      <p>
+        <Link to="/home">Home</Link>
+      </p>
+      <p>
+        <Link to="/login">Login</Link>
+      </p>
+      <p>
+        <Link to="/movies">Movies</Link>
+      </p>
+      <p>
+        <Link to="/series">Series</Link>
+      </p>
+      <p>
+        <Link to="/favorites">Favorites</Link>
+      </p>
 
-        <Counter />
-
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+      <main>
+        <Outlet />
+      </main>
+    </nav>
   );
 }
 
