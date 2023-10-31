@@ -12,7 +12,6 @@ import Favorites from "./pages/Favorites";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
       {
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/login",
+        path: "/",
         element: <Login />,
       },
       {
