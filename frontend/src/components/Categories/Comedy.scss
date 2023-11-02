@@ -1,0 +1,14 @@
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-content: start; /* Aligner les éléments en haut de la grille */
+
+  .movie-card {
+    width: 100%;
+    max-width: 300px;
+    /* Si vous souhaitez contrôler la hauteur des vignettes, vous pouvez ajouter une propriété height ici */
+  }
+}
