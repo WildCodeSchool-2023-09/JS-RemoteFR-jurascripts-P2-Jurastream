@@ -3,7 +3,7 @@ import MovieCard from "../components/Cards/MovieCard";
 import "./Movies.scss";
 import Rating from "../components/Rating";
 import Comedy from "../components/Categories/Comedy";
-// import Family from "../components/Categories/Family";
+import Family from "../components/Categories/Family";
 
 function Movie() {
   const movieIds = [652, 778, 287, 787, 782, 177, 929, 268, 829, 655];
@@ -18,6 +18,9 @@ function Movie() {
 
       <div className="comedy-section">
         <Comedy />
+      </div>
+      <div className="family-section">
+        <Family />
       </div>
       <p>
         <Link to="/series">Series</Link>
