@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function Login() {
   return (
-    <nav>
+    <div>
+      <NavBar />
       <h1>My Login Page</h1>
-      <p>
-        <Link to="/home">Login</Link>
-      </p>
-    </nav>
+    </div>
   );
 }
 
