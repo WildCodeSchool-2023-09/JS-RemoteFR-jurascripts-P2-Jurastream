@@ -3,7 +3,7 @@ import axios from "axios";
 import MovieCard from "../Cards/MovieCard";
 import "./Comedy.scss";
 
-const apiKey = "1ae30c2959bb39aba06cff704dc6a30c";
+const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";
 
 function Comedy() {
   const [comedyMovies, setComedyMovies] = useState([]);
