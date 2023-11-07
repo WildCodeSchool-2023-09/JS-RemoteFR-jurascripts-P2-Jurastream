@@ -1,22 +1,35 @@
-.item {
+.movie {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f7f7f7;
+}
 
-  button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+  // button {
+  //   background-color: #3498db;
+  //   color: #fff;
+  //   border: none;
+  //   padding: 5px 10px;
+  //   cursor: pointer;
 
-    &:hover {
-      background-color: #2980b9;
-    }
-  }
+  //   &:hover {
+  //     background-color: #2980b9;
+  //   }
+  // }
+  
+.isFavorite {
+    width: 40px;
+    height: 40px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg');
+}
+
+.notFavorite {
+  width: 40px;
+  height: 40px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg');
+  background-size: 100%;
 }
 
 

@@ -1,53 +1,17 @@
-// function App() {
-// eslint-disable-next-line prettier/prettier
-// eslint-disable-next-line prettier/prettier
-//   const [favorites, setFavorites] = useState([]);
-//   const items = [];
-
-//   const toggleFavorite = (item) => {
-//     if (favorites.includes(item)) {
-//       setFavorites(favorites.filter((fav) => fav !== item));
-//     } else {
-//       setFavorites([favorites, item]);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       {items.map((item) => (
-//         <div key={item.id}>
-//           {item.name}
-//           <button onClick={() => toggleFavorite(item)}>
-//             {favorites.includes(item) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-//           </button>
-//         </div>
-//       ))}
-
-//       <div>
-//         <h2>Favoris</h2>
-//         {favorites.map((fav) => (
-//           <div key={fav.id}>{fav.name}</div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// ------------------------------------------------------------------------------------------------------
-
 import React, { useState } from "react";
 import "./Heart.scss";
+import axios from "axios";
 
-// Composant pour afficher un élément
-function Item({ item, isFavorite, onToggleFavorite }) {
+// Composant pour afficher un button.
+
+function Heart({ movie, isFavorite, onToggleFavorite }) {
+  // eslint-disable-next-line prettier/prettier;
   return (
     <div>
-      <div key={item.id}>
-        {item.name}
-        <button type="button" onClick={() => onToggleFavorite(item)}>
-          {isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+      <div key={movie.id}>
+        {movie.name}
+        <button type="button" onClick={() => onToggleFavorite(movie)}>
+          {isFavorite ? "Remove from favorites" : "Add to favorites"}
         </button>
       </div>
     </div>
@@ -55,32 +19,43 @@ function Item({ item, isFavorite, onToggleFavorite }) {
 }
 
 // Composant principal
-function Heart() {
-  const [items, setItems] = useState([
-    { id: 1, name: "Element 1" },
-    { id: 2, name: "Element 2" },
-    { id: 3, name: "Element 3" },
-  ]);
 
-  const [favorites, setFavorites] = useState([]);
+function MovieList() {
+  axios.get("https://").then((response) => {
+    setMovies(response.data.results[0]);
+  });
+}
 
-  const toggleFavorite = (item) => {
-    if (favorites.includes(item)) {
-      setFavorites(favorites.filter((fav) => fav !== item));
-    } else {
-      setFavorites([...favorites, item]);
-    }
-  };
+const [movies, setMovies] = useState([
+  { movie_id: 1, title: "Elem-1" }, // Movies / Séries
+  { movie_id: 2, title: "Elem-2" },
+  { movie_id: 3, title: "Elem-3" },
+  { movie_id: 4, title: "Elem-4" },
+  { movie_id: 5, title: "Elem-5" },
+  { movie_id: 6, title: "Elem-6" },
+]);
 
+// déclaration de l'état des favoris + initialisation d'un tableau vide
+
+const [favorites, setFavorites] = useState([]);
+
+// fonction qui gère la liste de favoris
+
+const toggleFavorite = (movies) => {
+  if (favorites.includes(movies)) {
+    setFavorites(favorites.filter((fav) => fav !== movies));
+  } else {
+    setFavorites([...favorites, movies]);
+  }
   return (
     <div>
-      <h2>Éléments</h2>
-      {items.map((item) => (
-        <Item
-          key={item.id}
-          item={item}
-          isFavorite={favorites.includes(item)}
-          onToggleFavorite={toggleFavorite}
+      <h2>Movie</h2>
+      {movies.map((movie) => (
+        <Movie
+          key={movie.id}
+          movie={movie}
+          isFavorite={favorites.includes(movie)} // film inclus ou pas
+          onToggleFavorite={toggleFavorite} // action de passer ou non le film en favoris
         />
       ))}
 
@@ -90,10 +65,10 @@ function Heart() {
       ))}
     </div>
   );
-}
+};
 
 // Heart.propTypes = {
-//   items: PropTypes.array.isRequired,
+//   movies: PropTypes.array.isRequired,
 //   favorites: PropTypes.array.isRequired,
 // };
 
