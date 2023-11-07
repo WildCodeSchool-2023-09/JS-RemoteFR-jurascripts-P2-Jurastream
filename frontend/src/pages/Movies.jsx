@@ -1,26 +1,33 @@
 import { Link } from "react-router-dom";
-import MovieCard from "../components/Cards/MovieCard";
+import React, { useState } from "react";
+import InfoCard from "../components/InfoCard";
 import "./Movies.scss";
-import Rating from "../components/Rating";
 import Comedy from "../components/Categories/Comedy";
 import Family from "../components/Categories/Family";
 
 function Movie() {
-  const movieIds = [652, 778, 287, 787, 782, 177, 929, 268, 829, 655];
-  return (
-    <div className="movies">
-      <h2>Our Selection</h2>
-      <div className="movie-mosaic">
-        {movieIds.map((movieId) => (
-          <MovieCard key={movieId} movieId={movieId} />
-        ))}
-      </div>
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
+  const showInfoCard = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const hideInfoCard = () => {
+    setSelectedMovie(null);
+  };
+
+  return (
+    <div>
+      {selectedMovie && (
+        <div className="info-card-overlay">
+          <InfoCard movie={selectedMovie} onClose={hideInfoCard} />
+        </div>
+      )}
       <div className="comedy-section">
-        <Comedy />
+        <Comedy onMovieClick={showInfoCard} />{" "}
       </div>
       <div className="family-section">
-        <Family />
+        <Family onMovieClick={showInfoCard} />{" "}
       </div>
       <p>
         <Link to="/series">Series</Link>
@@ -31,9 +38,6 @@ function Movie() {
       <p>
         <Link to="/home">Home</Link>
       </p>
-      <div>
-        <Rating />
-      </div>
     </div>
   );
 }

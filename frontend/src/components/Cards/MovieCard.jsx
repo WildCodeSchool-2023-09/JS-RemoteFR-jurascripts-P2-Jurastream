@@ -1,12 +1,38 @@
-import axios from "axios";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import "./MovieCard.scss";
+import InfoCard from "../InfoCard";
 
-const apiKey = "1ae30c2959bb39aba06cff704dc6a30c";
+const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";
 
 function MovieCard({ movieId }) {
   const [posterPath, setPosterPath] = useState("");
+  const [showInfo, setShowInfo] = useState(false);
+  const [movieDetails, setMovieDetails] = useState({});
+
+  // FETCH DES INFOS POUR INFOCARD
+
+  const fetchMovieDetails = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=credits,videos&language=fr-FR`
+      );
+      setMovieDetails({
+        title: response.data.title,
+        overview: response.data.overview,
+        release_date: response.data.release_date,
+        cast: response.data.credits.cast,
+        trailerKey: response.data.videos.results.find(
+          (video) => video.type === "Trailer"
+        )?.key,
+      });
+    } catch (error) {
+      console.error("Error fetching movie details:", error);
+    }
+  };
+
+  // FETCH DES VIGNETTES
 
   const fetchMoviePoster = async () => {
     try {
@@ -21,8 +47,27 @@ function MovieCard({ movieId }) {
 
   fetchMoviePoster();
 
+  const toggleInfoCard = () => {
+    if (!showInfo) {
+      fetchMovieDetails();
+    }
+    setShowInfo(!showInfo);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      toggleInfoCard();
+    }
+  };
+
   return (
-    <div className="movie-card">
+    <div
+      className="movie-card"
+      onClick={toggleInfoCard}
+      onKeyDown={handleKeyPress}
+      tabIndex={0}
+      role="button"
+    >
       {posterPath && (
         <img
           src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
@@ -30,6 +75,7 @@ function MovieCard({ movieId }) {
           className="movie-card__image"
         />
       )}
+      {showInfo && <InfoCard movie={movieDetails} />}
     </div>
   );
 }
