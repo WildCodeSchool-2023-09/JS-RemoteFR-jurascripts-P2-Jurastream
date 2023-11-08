@@ -1,22 +1,51 @@
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import "./Rating.scss";
 
-function Rating() {
+function StarRating({ ratingOnChange }) {
+  const [rating, setRating] = useState(5);
+
+  const onClickStarRating = (newRating) => {
+    setRating(newRating);
+    if (ratingOnChange) {
+      ratingOnChange(newRating);
+    }
+  };
+
   return (
-    <figure>
-      <div className="rating">
-        <input type="radio" id="star5" name="rating" value="5" />
-        <label htmlFor="star5">‎</label>
-        <input type="radio" id="star4" name="rating" value="4" />
-        <label htmlFor="star4">‎</label>
-        <input type="radio" id="star3" name="rating" value="3" />
-        <label htmlFor="star3">‎</label>
-        <input type="radio" id="star2" name="rating" value="2" />
-        <label htmlFor="star2">‎</label>
-        <input type="radio" id="star1" name="rating" value="1" />
-        <label htmlFor="star1">‎</label>
+    <div className="star-rating-wrapper center">
+      <div className="star-rating-container">
+        {Array.from(Array(5).keys()).map((starNum) => (
+          <div
+            onClick={() => onClickStarRating(starNum)}
+            onKeyUp={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                onClickStarRating(starNum);
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            className={
+              starNum <= rating
+                ? "star-rating-item selected"
+                : "star-rating-item"
+            }
+          >
+            &#9733;
+          </div>
+        ))}
       </div>
-    </figure>
+    </div>
   );
 }
 
-export default Rating;
+StarRating.propTypes = {
+  ratingOnChange: PropTypes.func,
+};
+
+StarRating.defaultProps = {
+  ratingOnChange: null,
+};
+
+export default StarRating;

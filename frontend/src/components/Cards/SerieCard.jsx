@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./SerieCard.scss";
+import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 
 const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";

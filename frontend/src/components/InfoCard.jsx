@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./InfoCard.scss";
+import Rating from "./Rating";
 
 function InfoCard({ movie, onClose }) {
   if (!movie) {
@@ -13,6 +14,7 @@ function InfoCard({ movie, onClose }) {
         X
       </button>
       <h2>{movie.title}</h2>
+      <Rating />
       <p className="synopsis">{movie.overview}</p>
       <p>Date de sortie : {movie.release_date}</p>
       <div className="actors">
