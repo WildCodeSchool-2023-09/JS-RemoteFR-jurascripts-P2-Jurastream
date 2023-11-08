@@ -1,0 +1,64 @@
+.info-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  width: 80%;
+  max-width: 800px;
+  background-color: rgba(30, 4, 4, 0.85);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.synopsis {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.actors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .actor {
+    flex: 0 0 calc(33.33% - 20px);
+    text-align: center;
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+.trailer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  iframe {
+    width: 80%;
+    max-width: 640px;
+    height: 360px;
+  }
+}
