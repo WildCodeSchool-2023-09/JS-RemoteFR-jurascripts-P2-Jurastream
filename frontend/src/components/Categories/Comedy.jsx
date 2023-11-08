@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import MovieCard from "../Cards/MovieCard";
 import "./Comedy.scss";
+import Carousel from "../Carrousel";
 
 const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";
 
@@ -26,11 +26,7 @@ function Comedy() {
   return (
     <div>
       <h2>Comedy Movies</h2>
-      <div className="movie-list">
-        {comedyMovies.map((movie) => (
-          <MovieCard key={movie.id} movieId={movie.id} />
-        ))}
-      </div>
+      <Carousel movies={comedyMovies} />
     </div>
   );
 }
