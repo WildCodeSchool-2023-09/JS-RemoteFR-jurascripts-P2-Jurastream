@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Comedy.scss";
 import Carousel from "../Carrousel";
 
-const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";
+const apiKey = "856791ec73da31493ff35fd0cc49d245";
 
 function Comedy() {
   const [comedyMovies, setComedyMovies] = useState([]);

@@ -1,44 +1,39 @@
-$stars: 5;
-$star-size: 40px;
-$star-spacing: 2px;
-$star-on-color: #f9df4a;
-$star-off-color: #cccccc;
-$border-radius: 20px;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
 
-.rating {
-  width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
-  height: $star-size;
-  margin: 0 auto;
-  padding: 40px 50px;
-  border: 1px solid #cccccc;
-  background: #f9f9f9;
-  border-radius: $border-radius;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  label {
-    float: right;
-    position: relative;
-    width: $star-size;
-    height: $star-size;
-    cursor: pointer;
-    &:not(:first-of-type) {
-      padding-right: $star-spacing;
-    }
+.star-rating-wrapper {
+  background: white;
+  text-align: center;
+  flex-direction: column;
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  width: 10rem;
+}
 
-    &:before {
-      content: "\2605";
-      font-size: $star-size + 2px;
-      color: $star-off-color;
-      line-height: 1;
-    }
-  }
+.star-rating-container {
+  margin: 0.4rem 0 0rem;
+  display: flex;
+  flex-direction: row;
+}
 
-  input {
-    display: none;
-  }
+.star-rating-item {
+  cursor: pointer;
+  font-size: 2rem;
+  color: lightgray;
+  margin: 0 0.3rem;
+}
 
-  input:checked ~ label:before,
-  &:not(:checked) > label:hover:before,
-  &:not(:checked) > label:hover ~ label:before {
-    color: $star-on-color;
-  }
+.star-rating-item.selected {
+  color: gold;
 }

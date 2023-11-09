@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./MovieCard.scss";
+import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
+import { FavoritesContext } from "../FavoritesContext";
 
-const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";
+const apiKey = "856791ec73da31493ff35fd0cc49d245";
 
 function MovieCard({ movieId }) {
   const [posterPath, setPosterPath] = useState("");
   const [showInfo, setShowInfo] = useState(false);
   const [movieDetails, setMovieDetails] = useState({});
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
 
-  // FETCH DES INFOS POUR INFOCARD
+  const isFavorite = favorites.some((favorite) => favorite.id === movieId);
 
+  // Fetch de l'affiche du film
+  (async function fetchMoviePoster() {
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+      );
+      setPosterPath(response.data.poster_path);
+    } catch (error) {
+      console.error("Error fetching movie poster:", error);
+    }
+  })();
+
+  // Fetch des détails du film pour l'InfoCard
   const fetchMovieDetails = async () => {
     try {
       const response = await axios.get(
@@ -32,21 +48,7 @@ function MovieCard({ movieId }) {
     }
   };
 
-  // FETCH DES VIGNETTES
-
-  const fetchMoviePoster = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
-      );
-      setPosterPath(response.data.poster_path);
-    } catch (error) {
-      console.error("Error fetching movie poster:", error);
-    }
-  };
-
-  fetchMoviePoster();
-
+  // Gestion de l'affichage de l'InfoCard
   const toggleInfoCard = () => {
     if (!showInfo) {
       fetchMovieDetails();
@@ -54,9 +56,20 @@ function MovieCard({ movieId }) {
     setShowInfo(!showInfo);
   };
 
+  // Gestion du clavier pour l'accessibilité
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       toggleInfoCard();
+    }
+  };
+
+  // Gestion du clic sur le cœur pour ajouter/supprimer des favoris
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation(); // Empêche le clic de se propager au parent
+    if (isFavorite) {
+      removeFavorite(movieId);
+    } else {
+      addFavorite({ id: movieId, ...movieDetails });
     }
   };
 
@@ -68,13 +81,22 @@ function MovieCard({ movieId }) {
       tabIndex={0}
       role="button"
     >
-      {posterPath && (
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
-          alt="Movie Poster"
-          className="movie-card__image"
-        />
-      )}
+      <div className="poster_image">
+        {posterPath && (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
+            alt="Movie Poster"
+            className="movie-card__image"
+          />
+        )}
+        <button
+          type="button"
+          className="heart-icon"
+          onClick={handleFavoriteClick}
+        >
+          {isFavorite ? "❤️" : "🖤"}
+        </button>
+      </div>
       {showInfo && <InfoCard movie={movieDetails} />}
     </div>
   );

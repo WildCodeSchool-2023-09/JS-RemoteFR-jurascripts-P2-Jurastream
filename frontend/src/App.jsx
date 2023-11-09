@@ -1,11 +1,15 @@
-import "./App.scss";
+import React from "react";
 import { Outlet } from "react-router-dom";
+import { FavoritesProvider } from "./components/FavoritesContext";
+import "./App.scss";
 
 function App() {
   return (
-    <main>
-      <Outlet />
-    </main>
+    <FavoritesProvider>
+      <main>
+        <Outlet />
+      </main>
+    </FavoritesProvider>
   );
 }
 
