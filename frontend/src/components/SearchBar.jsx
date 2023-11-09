@@ -9,7 +9,7 @@ function SearchBar() {
   useEffect(() => {
     if (inputSearch) {
       fetch(
-        `https://api.themoviedb.org/3/search/multi?query=${inputSearch}&include_adult=false&api_key=877c7f202cabf1967d1a3d34b335b3d7`
+        `https://api.themoviedb.org/3/search/multi?query=${inputSearch}&include_adult=false&api_key=856791ec73da31493ff35fd0cc49d245`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -46,7 +46,6 @@ function SearchBar() {
             )
         )}
       </div>
-      <p>{movieList.id}</p>
     </>
   );
 }
