@@ -12,6 +12,7 @@ function SearchBar() {
     if (inputSearch) {
       fetch(
         `https://api.themoviedb.org/3/search/multi?query=${inputSearch}&include_adult=false&api_key=${apiKey}`
+
       )
         .then((res) => res.json())
         .then((data) => {
@@ -48,7 +49,6 @@ function SearchBar() {
             )
         )}
       </div>
-      <p>{movieList.id}</p>
     </>
   );
 }

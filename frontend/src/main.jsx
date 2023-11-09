@@ -9,17 +9,22 @@ import Login from "./pages/Login";
 import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Favorites from "./pages/Favorites";
+import Welcome from "./pages/Welcome";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <Welcome />,
+      },
+      {
         path: "/home",
         element: <Home />,
       },
       {
-        path: "/",
+        path: "/login",
         element: <Login />,
       },
       {
