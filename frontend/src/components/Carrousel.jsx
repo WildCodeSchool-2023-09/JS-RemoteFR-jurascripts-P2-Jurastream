@@ -19,7 +19,7 @@ function Carousel({ movies }) {
   }
 
   return (
-    <>
+    <div>
       <div className="movie-list">
         <MovieCard movieId={movies[movieIndex].id} />
         <MovieCard movieId={movies[movieIndex + 1].id} />
@@ -27,13 +27,23 @@ function Carousel({ movies }) {
         <MovieCard movieId={movies[movieIndex + 3].id} />
         <MovieCard movieId={movies[movieIndex + 4].id} />
       </div>
-      <button type="button" onClick={handleClickPrevious}>
-        &lt;
-      </button>
-      <button type="button" onClick={handleClickNext}>
-        &gt;
-      </button>
-    </>
+      <div>
+        <button
+          type="button"
+          className="left-button"
+          onClick={handleClickPrevious}
+        >
+          &lt;
+        </button>
+        <button
+          type="button"
+          className="right-button"
+          onClick={handleClickNext}
+        >
+          &gt;
+        </button>
+      </div>
+    </div>
   );
 }
 

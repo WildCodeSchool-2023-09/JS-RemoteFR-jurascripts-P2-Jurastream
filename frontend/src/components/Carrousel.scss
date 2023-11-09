@@ -1,13 +1,18 @@
 .movie-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
-    justify-content: center;
-    align-content: start;
-  
-    .movie-card {
-      width: 100%;
-      max-width: 300px;
-    }
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  margin-left: 5em;
+  .movie-card {
+    width: 100%;
+    max-width: 300px;
   }
+}
+
+.right-button {
+  position: relative;
+}
+  
+.left-button {
+  position: relative;
+}

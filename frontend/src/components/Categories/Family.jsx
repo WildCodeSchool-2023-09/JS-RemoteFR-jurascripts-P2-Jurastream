@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import MovieCard from "../Cards/MovieCard";
 import "./Family.scss";
+import Carousel from "../Carrousel";
 
-const apiKey = "856791ec73da31493ff35fd0cc49d245";
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 function Family() {
   const [familyMovies, setFamilyMovies] = useState([]);
@@ -26,11 +26,7 @@ function Family() {
   return (
     <div>
       <h2>Family Movies</h2>
-      <div className="movie-list">
-        {familyMovies.map((movie) => (
-          <MovieCard key={movie.id} movieId={movie.id} />
-        ))}
-      </div>
+      <Carousel movies={familyMovies} />
     </div>
   );
 }
