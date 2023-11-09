@@ -1,9 +1,22 @@
 import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { FavoritesContext } from "../components/FavoritesContext";
+import MovieCard from "../components/Cards/MovieCard";
+import "./Favorites.scss";
 
 function Favorites() {
+  const { favorites } = useContext(FavoritesContext);
+
   return (
-    <nav>
-      <h1>Favorites Page</h1>
+    <div className="favorites-container">
+      <h1>Mes Favoris</h1>
+      {favorites.length > 0 ? (
+        favorites.map((favorite) => (
+          <MovieCard key={favorite.id} movieId={favorite.id} />
+        ))
+      ) : (
+        <p>Aucun favori ajouté.</p>
+      )}
       <p>
         <Link to="/series">Series</Link>
       </p>
@@ -13,7 +26,7 @@ function Favorites() {
       <p>
         <Link to="/home">Home</Link>
       </p>
-    </nav>
+    </div>
   );
 }
 
