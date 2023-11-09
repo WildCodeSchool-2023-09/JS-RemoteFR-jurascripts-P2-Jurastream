@@ -1,25 +1,16 @@
-import { Link } from "react-router-dom";
 import "./Home.scss";
 import SearchBar from "../components/SearchBar";
-// import SearchResults from "../components/SearchResults";
+import NavBar from "../components/NavBar";
 
 function Home() {
   return (
-    <nav>
+    <div>
       <h1>My Home Page</h1>
       <div>
+        <NavBar />
         <SearchBar />
       </div>
-      <p>
-        <Link to="/movies">Movies</Link>
-      </p>
-      <p>
-        <Link to="/series">Series</Link>
-      </p>
-      <p>
-        <Link to="/favorites">Favorites</Link>
-      </p>
-    </nav>
+    </div>
   );
 }
 

@@ -1,9 +1,9 @@
-import NavBar from "../components/NavBar";
+import NavBarWelcome from "../components/NavBarWelcome";
 
 function Welcome() {
   return (
     <div>
-      <NavBar />
+      <NavBarWelcome />
       <h1>Welcome</h1>
     </div>
   );

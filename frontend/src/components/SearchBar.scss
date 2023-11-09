@@ -49,6 +49,20 @@ img.loupe {
   color: black;
 }
 
+.favorite-button {
+  position: absolute;
+  top: 5px; // Là où on souhaite qu'il apparaisse sur la carte
+  right: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #ff686b; // Couleur pour l'icône non favori
+  font-size: 1.5em; // Taille
+
+  &.is-favorite {
+    color: #ffd700; // Couleur pour l'icône favori
+  }
+}
 @media screen and (min-width: 950px) {
   .card-movie {
     margin: 10px;

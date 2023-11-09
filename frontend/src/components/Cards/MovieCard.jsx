@@ -91,10 +91,11 @@ function MovieCard({ movieId }) {
         )}
         <button
           type="button"
-          className="heart-icon"
+          className={`favorite-button ${isFavorite ? "is-favorite" : ""}`}
           onClick={handleFavoriteClick}
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
         >
-          {isFavorite ? "❤️" : "🖤"}
+          ♥
         </button>
       </div>
       {showInfo && <InfoCard movie={movieDetails} />}
