@@ -1,12 +1,21 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav>
-      <Link to="/login">Login</Link>
-      <Link to="/about">About</Link>
-    </nav>
+    <div>
+      <p>
+        <Link to="/home">Home</Link>
+      </p>
+      <p>
+        <Link to="/movies">Movies</Link>
+      </p>
+      <p>
+        <Link to="/series">Series</Link>
+      </p>
+      <p>
+        <Link to="/favorites">Favorites</Link>
+      </p>
+    </div>
   );
 }
 
