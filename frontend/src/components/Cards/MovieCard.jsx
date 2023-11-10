@@ -5,7 +5,7 @@ import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 import { FavoritesContext } from "../FavoritesContext";
 
-const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
 function MovieCard({ movieId }) {
   const [posterPath, setPosterPath] = useState("");
@@ -75,7 +75,7 @@ function MovieCard({ movieId }) {
 
   return (
     <div
-      className="movie-card"
+      className="media-card"
       onClick={toggleInfoCard}
       onKeyDown={handleKeyPress}
       tabIndex={0}
