@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import NavBar from "../components/NavBar";
+import SearchBar from "../components/SearchBar";
 import InfoCard from "../components/InfoCard";
 import "./Movies.scss";
 import Comedy from "../components/Categories/Comedy";
@@ -18,6 +19,8 @@ function Movie() {
 
   return (
     <div>
+      <NavBar />
+      <SearchBar />
       {selectedMovie && (
         <div className="info-card-overlay">
           <InfoCard movie={selectedMovie} onClose={hideInfoCard} />
@@ -29,15 +32,6 @@ function Movie() {
       <div className="family-section">
         <Family onMovieClick={showInfoCard} />{" "}
       </div>
-      <p>
-        <Link to="/series">Series</Link>
-      </p>
-      <p>
-        <Link to="/favorites">Favorites</Link>
-      </p>
-      <p>
-        <Link to="/home">Home</Link>
-      </p>
     </div>
   );
 }

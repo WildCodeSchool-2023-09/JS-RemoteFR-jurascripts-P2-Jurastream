@@ -5,7 +5,7 @@ import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 import { FavoritesContext } from "../FavoritesContext";
 
-const apiKey = "e50c3de532f2abaf6995340152fbbd02";
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 function MovieCard({ movieId }) {
   const [posterPath, setPosterPath] = useState("");
@@ -91,10 +91,11 @@ function MovieCard({ movieId }) {
         )}
         <button
           type="button"
-          className="heart-icon"
+          className={`favorite-button ${isFavorite ? "is-favorite" : ""}`}
           onClick={handleFavoriteClick}
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
         >
-          {isFavorite ? "❤️" : "🖤"}
+          ♥
         </button>
       </div>
       {showInfo && <InfoCard movie={movieDetails} />}

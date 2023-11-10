@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
+import { FavoritesContext } from "../FavoritesContext";
 
-const apiKey = "e50c3de532f2abaf6995340152fbbd02";
+
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
 function SerieCard({ serieId }) {
   const [posterPath, setPosterPath] = useState("");
   const [showInfo, setShowInfo] = useState(false);
   const [serieDetails, setSerieDetails] = useState({});
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
+
+  const isFavorite = favorites.some((favorite) => favorite.id === serieId);
 
   // FETCH DES INFOS POUR INFOCARD
 
@@ -60,6 +66,15 @@ function SerieCard({ serieId }) {
     }
   };
 
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    if (isFavorite) {
+      removeFavorite(serieId);
+    } else {
+      addFavorite({ id: serieId, ...serieDetails });
+    }
+  };
+
   return (
     <div
       className="serie-card"
@@ -78,6 +93,13 @@ function SerieCard({ serieId }) {
       {showInfo && (
         <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
       )}
+      <button
+        type="button"
+        className="heart-icon"
+        onClick={handleFavoriteClick}
+      >
+        {isFavorite ? "❤️" : "🖤"}
+      </button>
     </div>
   );
 }
