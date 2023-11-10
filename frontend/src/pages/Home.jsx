@@ -4,8 +4,7 @@ import NavBar from "../components/NavBar";
 
 function Home() {
   return (
-
-    <div>
+    <div className="home">
       <h1>My Home Page</h1>
       <div>
         <NavBar />

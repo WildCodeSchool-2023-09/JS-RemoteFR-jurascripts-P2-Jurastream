@@ -1,13 +1,13 @@
-import NavBar from "../components/NavBar";
 import "./Welcome.scss";
 import "../components/NavBar.scss";
+import NavBarWelcome from "../components/NavBarWelcome";
 
 function Welcome() {
   return (
     <body className="welcome">
       <div>
         <nav>
-          <NavBar />
+          <NavBarWelcome />
         </nav>
         <h2>
           <img src="./src/assets/LOGO.png" alt="logo" />

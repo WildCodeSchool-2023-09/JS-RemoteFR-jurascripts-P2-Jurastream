@@ -8,7 +8,7 @@ function Series() {
     1668, 60625, 2316, 1399, 30981, 1398, 160, 10100, 1396, 60574,
   ];
   return (
-    <div>
+    <div className="home">
       <NavBar />
       <SearchBar />
       <div className="serie-mosaic">

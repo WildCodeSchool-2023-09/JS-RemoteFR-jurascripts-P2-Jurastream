@@ -10,7 +10,7 @@ function Favorites() {
   const { favorites } = useContext(FavoritesContext);
 
   return (
-    <div>
+    <div className="home">
       <NavBar />
       <SearchBar />
       <div className="favorites-container">

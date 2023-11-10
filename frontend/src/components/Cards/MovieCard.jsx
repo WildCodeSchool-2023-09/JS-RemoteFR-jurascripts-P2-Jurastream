@@ -6,7 +6,7 @@ import InfoCard from "../InfoCard";
 import { FavoritesContext } from "../FavoritesContext";
 
 
-const apiKey = import.meta.env.TMDB_API_KEY;
+const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
 function MovieCard({ movieId }) {
   const [posterPath, setPosterPath] = useState("");
