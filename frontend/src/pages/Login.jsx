@@ -55,8 +55,8 @@ function Login() {
   };
 
   return (
-    <body className="login">
-      <div>
+    <body>
+      <div className="login">
         <section>
           <p
             ref={errRef}

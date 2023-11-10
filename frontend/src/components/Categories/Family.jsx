@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Family.scss";
 import Carousel from "../Carrousel";
 
-const apiKey = import.meta.env.TMDB_API_KEY;
+const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
 function Family() {
   const [familyMovies, setFamilyMovies] = useState([]);

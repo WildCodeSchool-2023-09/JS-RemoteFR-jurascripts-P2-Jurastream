@@ -18,7 +18,7 @@ function Movie() {
   };
 
   return (
-    <div>
+    <div className="home">
       <NavBar />
       <SearchBar />
       {selectedMovie && (

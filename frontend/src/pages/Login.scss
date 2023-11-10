@@ -1,13 +1,12 @@
 .login {
-  div {
-    background-image: url("../assets/iStock-486175530.jpg");
-    background-repeat: none;
-    height: auto;
-    width: 100%;
-    min-height: 100vh;
-    background-position: center center;
-    opacity: 90%;
-  }
+  background-image: url("../assets/iStock-486175530.jpg");
+  background-repeat: none;
+  height: auto;
+  width: 100%;
+  min-height: 100vh;
+  background-position: center center;
+  opacity: 90%;
+  background-size: cover;
 }
 section {
   width: 100%;
