@@ -5,7 +5,7 @@ import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 import { FavoritesContext } from "../FavoritesContext";
 
-const apiKey = "856791ec73da31493ff35fd0cc49d245";
+const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
 function MovieCard({ movieId }) {
   const [posterPath, setPosterPath] = useState("");

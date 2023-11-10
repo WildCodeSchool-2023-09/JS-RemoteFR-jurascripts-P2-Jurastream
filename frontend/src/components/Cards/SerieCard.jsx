@@ -4,7 +4,7 @@ import axios from "axios";
 import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 
-const apiKey = "856791ec73da31493ff35fd0cc49d245";
+const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
 function SerieCard({ serieId }) {
   const [posterPath, setPosterPath] = useState("");

@@ -6,13 +6,12 @@ function SearchBar() {
   const [inputSearch, setInputSearch] = useState("");
   const [movieList, setMovieList] = useState([]);
 
-  const apiKey = "856791ec73da31493ff35fd0cc49d245";
+  const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
   useEffect(() => {
     if (inputSearch) {
       fetch(
         `https://api.themoviedb.org/3/search/multi?query=${inputSearch}&include_adult=false&api_key=${apiKey}`
-
       )
         .then((res) => res.json())
         .then((data) => {
