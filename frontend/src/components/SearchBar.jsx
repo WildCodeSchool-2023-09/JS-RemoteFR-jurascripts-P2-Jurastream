@@ -9,7 +9,7 @@ function SearchBar() {
     useContext(FavoritesContext);
 
   const apiKey = import.meta.env.TMDB_API_KEY;
-
+  
   useEffect(() => {
     if (inputSearch) {
       fetch(

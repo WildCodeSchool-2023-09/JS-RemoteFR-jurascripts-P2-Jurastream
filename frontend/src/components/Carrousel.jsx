@@ -20,7 +20,7 @@ function Carousel({ movies }) {
 
   return (
     <div>
-      <div className="movie-list">
+      <div className="media-list">
         <MovieCard movieId={movies[movieIndex].id} />
         <MovieCard movieId={movies[movieIndex + 1].id} />
         <MovieCard movieId={movies[movieIndex + 2].id} />

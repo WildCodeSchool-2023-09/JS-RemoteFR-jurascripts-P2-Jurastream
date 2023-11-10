@@ -5,6 +5,7 @@ import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 import { FavoritesContext } from "../FavoritesContext";
 
+
 const apiKey = import.meta.env.TMDB_API_KEY;
 
 function SerieCard({ serieId }) {
@@ -76,29 +77,33 @@ function SerieCard({ serieId }) {
 
   return (
     <div
-      className="serie-card"
+      className="media-card"
       onClick={toggleInfoCard}
       onKeyDown={handleKeyPress}
       tabIndex={0}
       role="button"
     >
-      {posterPath && (
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
-          alt="Serie Poster"
-          className="serie-card__image"
-        />
-      )}
-      {showInfo && (
-        <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
-      )}
-      <button
-        type="button"
-        className="heart-icon"
-        onClick={handleFavoriteClick}
-      >
-        {isFavorite ? "❤️" : "🖤"}
-      </button>
+      <div className="poster_image">
+        {posterPath && (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
+            alt="Serie Poster"
+            className="serie-card__image"
+          />
+        )}
+        {showInfo && (
+          <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
+        )}
+        <button
+          type="button"
+          className={`favorite-button ${isFavorite ? "is-favorite" : ""}`}
+          onClick={handleFavoriteClick}
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          ♥
+        </button>
+      </div>
+      {showInfo && <InfoCard serie={serieDetails} />}
     </div>
   );
 }

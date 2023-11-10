@@ -1,8 +1,10 @@
-.movie-list {
+.media-list {
   display: flex;
   justify-content: center;
   align-content: flex-start;
   margin-left: 5em;
+  gap: 1%;
+
   .movie-card {
     width: 100%;
     max-width: 300px;
@@ -12,7 +14,7 @@
 .right-button {
   position: relative;
 }
-  
+
 .left-button {
   position: relative;
 }

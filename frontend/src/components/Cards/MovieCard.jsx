@@ -5,6 +5,7 @@ import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
 import { FavoritesContext } from "../FavoritesContext";
 
+
 const apiKey = import.meta.env.TMDB_API_KEY;
 
 function MovieCard({ movieId }) {
@@ -75,7 +76,7 @@ function MovieCard({ movieId }) {
 
   return (
     <div
-      className="movie-card"
+      className="media-card"
       onClick={toggleInfoCard}
       onKeyDown={handleKeyPress}
       tabIndex={0}
