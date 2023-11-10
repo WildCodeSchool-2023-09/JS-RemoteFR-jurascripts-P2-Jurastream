@@ -3,7 +3,8 @@ import axios from "axios";
 import "./Comedy.scss";
 import Carousel from "../Carrousel";
 
-const apiKey = "e50c3de532f2abaf6995340152fbbd02";
+
+const apiKey = import.meta.env.TMDB_API_KEY;
 
 function Comedy() {
   const [comedyMovies, setComedyMovies] = useState([]);

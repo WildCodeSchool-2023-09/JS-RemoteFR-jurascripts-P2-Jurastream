@@ -8,8 +8,8 @@ function SearchBar() {
   const { addFavorite, removeFavorite, isFavorite } =
     useContext(FavoritesContext);
 
-  const apiKey = "e50c3de532f2abaf6995340152fbbd02";
-
+  const apiKey = import.meta.env.TMDB_API_KEY;
+  
   useEffect(() => {
     if (inputSearch) {
       fetch(

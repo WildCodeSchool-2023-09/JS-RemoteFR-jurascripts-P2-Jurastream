@@ -55,82 +55,85 @@ function Login() {
   };
 
   return (
-    <div className="background-image">
-      <section>
-        <p
-          ref={errRef}
-          className={errMsg ? "errmsg" : "offscreen"}
-          aria-live="assertive"
-        >
-          {errMsg}
-        </p>
-        <h1>Register</h1>
-        <form>
-          <label htmlFor="username">
-            Username :<span className={validName ? "valid" : "hide"}>Good</span>
-            <span className={validName || !user ? "hide" : "invalid"}>
-              Not good
-            </span>
-          </label>
-          <input
-            type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
-            required
-            aria-invalid={validPwd ? "false" : "true"}
-            aria-describedby="uidnote"
-            onFocus={() => setUserFocus(true)}
-            onBlur={() => setUserFocus(false)}
-          />
+    <body className="login">
+      <div>
+        <section>
           <p
-            id="uidnote"
-            className={
-              userFocus && user && !validName ? "instructions" : "offscreen"
-            }
+            ref={errRef}
+            className={errMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
           >
-            4 to 24 characters.
-            <br />
-            Must begin with a letter.
-            <br />
-            Letters, numbers, underscores, hyphens allowed.
+            {errMsg}
           </p>
+          <h1>Register</h1>
+          <form>
+            <label htmlFor="username">
+              Username :
+              <span className={validName ? "valid" : "hide"}>Good</span>
+              <span className={validName || !user ? "hide" : "invalid"}>
+                Not good
+              </span>
+            </label>
+            <input
+              type="text"
+              id="username"
+              ref={userRef}
+              autoComplete="off"
+              onChange={(e) => setUser(e.target.value)}
+              required
+              aria-invalid={validPwd ? "false" : "true"}
+              aria-describedby="uidnote"
+              onFocus={() => setUserFocus(true)}
+              onBlur={() => setUserFocus(false)}
+            />
+            <p
+              id="uidnote"
+              className={
+                userFocus && user && !validName ? "instructions" : "offscreen"
+              }
+            >
+              4 to 24 characters.
+              <br />
+              Must begin with a letter.
+              <br />
+              Letters, numbers, underscores, hyphens allowed.
+            </p>
 
-          <label htmlFor="password">
-            Password:
-            <span className={validPwd ? "valid" : "hide"}>Good</span>
-            <span className={validPwd || !user ? "hide" : "invalid"}>
-              Not good
-            </span>
-          </label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPwd(e.target.value)}
-            required
-            aria-invalid={validPwd ? "false" : "true"}
-            onFocus={() => setPwdFocus(true)}
-            onBlur={() => setPwdFocus(false)}
-          />
-          <p
-            id="pwdnote"
-            className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
-          >
-            8 to 24 characters.
-            <br />
-            Must include uppercase and lowercase letters, a number and a special
-            dinosaur.
-            <br />
-            Use a special character like [!@#$%_-]
-          </p>
+            <label htmlFor="password">
+              Password:
+              <span className={validPwd ? "valid" : "hide"}>Good</span>
+              <span className={validPwd || !user ? "hide" : "invalid"}>
+                Not good
+              </span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPwd(e.target.value)}
+              required
+              aria-invalid={validPwd ? "false" : "true"}
+              onFocus={() => setPwdFocus(true)}
+              onBlur={() => setPwdFocus(false)}
+            />
+            <p
+              id="pwdnote"
+              className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
+            >
+              8 to 24 characters.
+              <br />
+              Must include uppercase and lowercase letters, a number and a
+              special dinosaur.
+              <br />
+              Use a special character like [!@#$%_-]
+            </p>
 
-          <button onClick={handleSubmit} type="submit" className="button">
-            <Link to="/home">Connexion</Link>
-          </button>
-        </form>
-      </section>
-    </div>
+            <button onClick={handleSubmit} type="submit" className="button">
+              <Link to="/home">Connexion</Link>
+            </button>
+          </form>
+        </section>
+      </div>
+    </body>
   );
 }
 
