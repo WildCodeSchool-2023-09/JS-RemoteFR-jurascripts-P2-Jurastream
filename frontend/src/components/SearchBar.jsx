@@ -8,7 +8,7 @@ function SearchBar() {
   const { addFavorite, removeFavorite, isFavorite } =
     useContext(FavoritesContext);
 
-  const apiKey = import.meta.env.TMDB_API_KEY;
+  const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
   useEffect(() => {
     if (inputSearch) {
