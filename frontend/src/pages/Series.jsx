@@ -2,6 +2,8 @@ import SerieCard from "../components/Cards/SerieCard";
 import "./Series.scss";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
+import CategorySeries from "../components/CategorySeries";
+import TrendingSeries from "../components/TrendingSeries";
 
 function Series() {
   const serieIds = [
@@ -11,10 +13,16 @@ function Series() {
     <div className="home">
       <NavBar />
       <SearchBar />
+      <div className="family-section">
+        <TrendingSeries />
+      </div>
       <div className="serie-mosaic">
         {serieIds.map((serieId) => (
           <SerieCard key={serieId} serieId={serieId} />
         ))}
+      </div>
+      <div>
+        <CategorySeries />
       </div>
     </div>
   );

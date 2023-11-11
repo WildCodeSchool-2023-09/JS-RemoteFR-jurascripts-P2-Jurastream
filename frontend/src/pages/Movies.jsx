@@ -5,6 +5,8 @@ import InfoCard from "../components/InfoCard";
 import "./Movies.scss";
 import Comedy from "../components/Categories/Comedy";
 import Family from "../components/Categories/Family";
+import CategoryMovies from "../components/CategoryMovies";
+import TrendingMovies from "../components/TrendingMovies";
 
 function Movie() {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -26,11 +28,17 @@ function Movie() {
           <InfoCard movie={selectedMovie} onClose={hideInfoCard} />
         </div>
       )}
+      <div className="family-section">
+        <TrendingMovies />
+      </div>
       <div className="comedy-section">
         <Comedy onMovieClick={showInfoCard} />{" "}
       </div>
       <div className="family-section">
         <Family onMovieClick={showInfoCard} />{" "}
+      </div>
+      <div className="family-section">
+        <CategoryMovies />
       </div>
     </div>
   );
