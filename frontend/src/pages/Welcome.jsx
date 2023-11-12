@@ -13,7 +13,7 @@ function Welcome() {
           <img src="./src/assets/LOGO.png" alt="logo" />
         </h2>
         <form>
-          <input name="uncontrolled" placeholder="Subscribe" />
+          <input name="uncontrolled" placeholder="Subscribe with your @" />
         </form>
       </div>
     </body>

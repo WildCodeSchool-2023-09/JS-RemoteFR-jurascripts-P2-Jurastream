@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import CarouselSeries from "./CarouselSeries";
+import CarouselSeries from "../CarouselSeries";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
@@ -49,7 +49,7 @@ function CategorySeries() {
           </option>
         ))}
       </select>
-      <CarouselSeries series={series} />
+      {series.length > 0 && <CarouselSeries series={series} />}
     </div>
   );
 }

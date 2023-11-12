@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import CarouselMovies from "./CarouselMovies";
+import CarouselMovies from "../CarouselMovies";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 

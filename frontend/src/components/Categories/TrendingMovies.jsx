@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CarouselSeries from "./CarouselSeries";
+import CarouselMovies from "../CarouselMovies";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
-function TrendingSeries() {
+function TrendingMovies() {
   const [trending, setTrending] = useState([]);
 
   const fetchTrending = async () => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/tv/day?language=en-US&api_key=${apiKey}&include_adult=false`
+        `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${apiKey}&include_adult=false`
       );
       setTrending(response.data.results);
     } catch (error) {
-      console.error("Error fetching all", error);
+      console.error("Error fetching movies", error);
     }
   };
 
@@ -25,9 +25,9 @@ function TrendingSeries() {
   return (
     <div>
       <h2>Trending</h2>
-      <CarouselSeries series={trending} />
+      <CarouselMovies movies={trending} />
     </div>
   );
 }
 
-export default TrendingSeries;
+export default TrendingMovies;

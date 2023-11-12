@@ -2,8 +2,9 @@ import SerieCard from "../components/Cards/SerieCard";
 import "./Series.scss";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
-import CategorySeries from "../components/CategorySeries";
-import TrendingSeries from "../components/TrendingSeries";
+import CategorySeries from "../components/Categories/CategorySeries";
+import TrendingSeries from "../components/Categories/TrendingSeries";
+import UpcomingSeries from "../components/Categories/UpcomingSeries";
 
 function Series() {
   const serieIds = [
@@ -23,6 +24,7 @@ function Series() {
       </div>
       <div>
         <CategorySeries />
+        <UpcomingSeries />
       </div>
     </div>
   );

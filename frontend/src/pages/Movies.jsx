@@ -5,10 +5,11 @@ import InfoCard from "../components/InfoCard";
 import "./Movies.scss";
 import Comedy from "../components/Categories/Comedy";
 import Family from "../components/Categories/Family";
-import CategoryMovies from "../components/CategoryMovies";
-import TrendingMovies from "../components/TrendingMovies";
+import CategoryMovies from "../components/Categories/CategoryMovies";
+import TrendingMovies from "../components/Categories/TrendingMovies";
+import UpcomingMovies from "../components/Categories/UpcomingMovies";
 
-function Movie() {
+function Movies() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const showInfoCard = (movie) => {
@@ -39,9 +40,10 @@ function Movie() {
       </div>
       <div className="family-section">
         <CategoryMovies />
+        <UpcomingMovies />
       </div>
     </div>
   );
 }
 
-export default Movie;
+export default Movies;
