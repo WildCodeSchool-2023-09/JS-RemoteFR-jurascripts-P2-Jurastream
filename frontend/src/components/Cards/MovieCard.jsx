@@ -16,18 +16,6 @@ function MovieCard({ movieId }) {
 
   const isFavorite = favorites.some((favorite) => favorite.id === movieId);
 
-  // Fetch de l'affiche du film
-  (async function fetchMoviePoster() {
-    try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
-      );
-      setPosterPath(response.data.poster_path);
-    } catch (error) {
-      console.error("Error fetching movie poster:", error);
-    }
-  })();
-
   // Fetch des détails du film pour l'InfoCard
   const fetchMovieDetails = async () => {
     try {
@@ -42,11 +30,24 @@ function MovieCard({ movieId }) {
         trailerKey: response.data.videos.results.find(
           (video) => video.type === "Trailer"
         )?.key,
+        rating: response.data.vote_average,
       });
     } catch (error) {
       console.error("Error fetching movie details:", error);
     }
   };
+
+  // Fetch de l'affiche du film
+  (async function fetchMoviePoster() {
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+      );
+      setPosterPath(response.data.poster_path);
+    } catch (error) {
+      console.error("Error fetching movie poster:", error);
+    }
+  })();
 
   // Gestion de l'affichage de l'InfoCard
   const toggleInfoCard = () => {
@@ -62,7 +63,6 @@ function MovieCard({ movieId }) {
       toggleInfoCard();
     }
   };
-
   // Gestion du clic sur le cœur pour ajouter/supprimer des favoris
   const handleFavoriteClick = (e) => {
     e.stopPropagation(); // Empêche le clic de se propager au parent
@@ -98,7 +98,9 @@ function MovieCard({ movieId }) {
           ♥
         </button>
       </div>
-      {showInfo && <InfoCard movie={movieDetails} />}
+      {showInfo && (
+        <InfoCard movie={movieDetails} onClose={() => setShowInfo(false)} />
+      )}
     </div>
   );
 }

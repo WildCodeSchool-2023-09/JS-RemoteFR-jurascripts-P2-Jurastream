@@ -1,25 +1,50 @@
-import React from "react";
 import PropTypes from "prop-types";
-import "./InfoCard.scss";
 import Rating from "./Rating";
+import "./InfoCard.scss";
+import closeIcon from "../assets/closeIcon.png";
 
 function InfoCard({ movie, onClose }) {
   if (!movie) {
     return null;
   }
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${day}-${month}-${year}`;
+  }
+  const formattedReleaseDate = formatDate(movie.release_date);
+
   return (
     <div className="info-card">
-      <button type="button" className="close-button" onClick={onClose}>
-        X
+      <button
+        type="button"
+        className="close-button"
+        onClick={onClose}
+        aria-label="Fermer"
+      >
+        <img src={closeIcon} alt="Fermer" />
       </button>
-      <h2>{movie.title}</h2>
-      <Rating />
+      <h2 id="dialogTitle" className="movieTitle">
+        {movie.title}
+      </h2>
       <p className="synopsis">{movie.overview}</p>
-      <p>Date de sortie : {movie.release_date}</p>
+      <p className="release">Date de sortie : {formattedReleaseDate}</p>
+      {movie.trailerKey && (
+        <iframe
+          title="Trailer"
+          width="560"
+          height="315"
+          src={`https://www.youtube.com/embed/${movie.trailerKey}`}
+          allowFullScreen
+        />
+      )}
       <div className="actors">
         {movie.cast &&
-          movie.cast.slice(0, 4).map((actor) => (
+          movie.cast.slice(0, 6).map((actor) => (
             <div key={actor.id} className="actor">
               {actor.profile_path && (
                 <img
@@ -31,15 +56,9 @@ function InfoCard({ movie, onClose }) {
             </div>
           ))}
       </div>
-      {movie.trailerKey && (
-        <iframe
-          title="Trailer"
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${movie.trailerKey}`}
-          allowFullScreen
-        />
-      )}
+      <p className="rating-title">
+        Note du film : <Rating rating={movie.rating} />
+      </p>
     </div>
   );
 }
@@ -57,6 +76,7 @@ InfoCard.propTypes = {
       })
     ),
     trailerKey: PropTypes.string,
+    rating: PropTypes.number,
   }),
   onClose: PropTypes.func.isRequired,
 };
