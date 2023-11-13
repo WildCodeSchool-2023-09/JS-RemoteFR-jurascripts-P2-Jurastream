@@ -27,10 +27,10 @@ function Movie() {
         </div>
       )}
       <div className="comedy-section">
-        <Comedy onMovieClick={showInfoCard} />{" "}
+        <Comedy onMovieClick={showInfoCard} />
       </div>
       <div className="family-section">
-        <Family onMovieClick={showInfoCard} />{" "}
+        <Family onMovieClick={showInfoCard} />
       </div>
     </div>
   );

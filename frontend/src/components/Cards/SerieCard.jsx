@@ -31,6 +31,7 @@ function SerieCard({ serieId }) {
         trailerKey: response.data.videos.results.find(
           (video) => video.type === "Trailer"
         )?.key,
+        rating: response.data.vote_average,
       });
     } catch (error) {
       console.error("Error fetching serie details:", error);
@@ -52,18 +53,23 @@ function SerieCard({ serieId }) {
 
   fetchSeriePoster();
 
+  // Gestion de l'affichage de l'InfoCard
+
   const toggleInfoCard = () => {
     if (!showInfo) {
       fetchSerieDetails();
     }
     setShowInfo(!showInfo);
   };
+  // Gestion du clavier pour l'accessibilité
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       toggleInfoCard();
     }
   };
+
+  // Gestion du clic sur le cœur pour ajouter/supprimer des favoris
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
@@ -102,7 +108,7 @@ function SerieCard({ serieId }) {
           ♥
         </button>
       </div>
-      {showInfo && <InfoCard serie={serieDetails} />}
+      <InfoCard serie={serieDetails} onClose={() => setShowInfo(false)} />
     </div>
   );
 }

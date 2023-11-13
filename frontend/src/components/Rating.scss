@@ -1,39 +1,14 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
-}
-
-.center {
+.rating {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
 
-.star-rating-wrapper {
-  background: white;
-  text-align: center;
-  flex-direction: column;
-  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.15);
-  padding: 3rem 4rem;
-  border-radius: 20px;
-  width: 10rem;
-}
+  span {
+    color: gold;
+    font-size: 20px;
+    margin-right: 2px;
 
-.star-rating-container {
-  margin: 0.4rem 0 0rem;
-  display: flex;
-  flex-direction: row;
-}
-
-.star-rating-item {
-  cursor: pointer;
-  font-size: 2rem;
-  color: lightgray;
-  margin: 0 0.3rem;
-}
-
-.star-rating-item.selected {
-  color: gold;
+    &.filled {
+      color: #ffd700;
+    }
+  }
 }

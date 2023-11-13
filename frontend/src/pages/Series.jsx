@@ -1,7 +1,7 @@
-import SerieCard from "../components/Cards/SerieCard";
 import "./Series.scss";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
+import InfoCard from "../components/InfoCard";
 
 function Series() {
   const serieIds = [
@@ -13,7 +13,7 @@ function Series() {
       <SearchBar />
       <div className="serie-mosaic">
         {serieIds.map((serieId) => (
-          <SerieCard key={serieId} serieId={serieId} />
+          <InfoCard key={serieId} serieId={serieId} />
         ))}
       </div>
     </div>
