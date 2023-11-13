@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Family.scss";
-import Carousel from "../Carrousel";
+import CarouselMovies from "../CarouselMovies";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
@@ -26,7 +26,7 @@ function Family() {
   return (
     <div>
       <h2>Family Movies</h2>
-      <Carousel movies={familyMovies} />
+      <CarouselMovies movies={familyMovies} />
     </div>
   );
 }

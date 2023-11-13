@@ -3,7 +3,7 @@ import "./NavBar.scss";
 
 function NavBar() {
   return (
-    <div>
+    <div className="navbar">
       <p>
         <Link to="/home">Home</Link>
       </p>

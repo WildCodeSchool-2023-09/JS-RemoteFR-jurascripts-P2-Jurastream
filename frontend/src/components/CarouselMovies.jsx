@@ -3,7 +3,7 @@ import { useState } from "react";
 import MovieCard from "./Cards/MovieCard";
 import "./Carrousel.scss";
 
-function Carousel({ movies }) {
+function CarouselMovies({ movies }) {
   const [movieIndex, setMovieIndex] = useState(0);
 
   const handleClickNext = () => {
@@ -47,8 +47,8 @@ function Carousel({ movies }) {
   );
 }
 
-Carousel.propTypes = {
+CarouselMovies.propTypes = {
   movies: PropTypes.arrayOf.isRequired,
 };
 
-export default Carousel;
+export default CarouselMovies;

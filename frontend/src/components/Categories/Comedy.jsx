@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Comedy.scss";
-import Carousel from "../Carrousel";
+import CarouselMovies from "../CarouselMovies";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
@@ -26,7 +26,7 @@ function Comedy() {
   return (
     <div>
       <h2>Comedy Movies</h2>
-      <Carousel movies={comedyMovies} />
+      <CarouselMovies movies={comedyMovies} />
     </div>
   );
 }
