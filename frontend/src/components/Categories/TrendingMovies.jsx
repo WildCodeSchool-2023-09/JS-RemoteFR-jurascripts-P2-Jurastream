@@ -23,8 +23,8 @@ function TrendingMovies() {
   }
 
   return (
-    <div>
-      <h2>Trending</h2>
+    <div className="barre">
+      <h2>Trending Movies</h2>
       <CarouselMovies movies={trending} />
     </div>
   );

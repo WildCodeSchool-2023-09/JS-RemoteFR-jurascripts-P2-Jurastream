@@ -23,8 +23,8 @@ function TrendingSeries() {
   }
 
   return (
-    <div>
-      <h2>Trending</h2>
+    <div className="barre">
+      <h2>Trending Series</h2>
       <CarouselSeries series={trending} />
     </div>
   );

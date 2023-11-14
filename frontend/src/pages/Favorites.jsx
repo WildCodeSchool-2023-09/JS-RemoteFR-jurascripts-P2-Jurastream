@@ -5,7 +5,7 @@ import MovieCard from "../components/Cards/MovieCard";
 import SerieCard from "../components/Cards/SerieCard";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
-import "./Favorites.scss";
+import "../components/Categories/Style.scss";
 
 function Favorites() {
   const { favorites } = useContext(FavoritesContext);

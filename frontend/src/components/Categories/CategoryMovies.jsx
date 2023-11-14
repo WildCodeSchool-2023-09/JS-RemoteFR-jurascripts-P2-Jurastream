@@ -40,7 +40,7 @@ function CategoryMovies() {
   }, [categoryButton]);
 
   return (
-    <div>
+    <div className="barre">
       <h2>Category of movies</h2>
       <select onChange={(e) => setCategoryButton(e.target.value)}>
         {genres.map((genre) => (

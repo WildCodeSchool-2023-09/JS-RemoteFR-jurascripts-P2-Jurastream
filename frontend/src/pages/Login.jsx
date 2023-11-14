@@ -57,6 +57,7 @@ function Login() {
   return (
     <body>
       <div className="login">
+        <img src="./src/assets/LOGO.png" alt="logo" />
         <section>
           <p
             ref={errRef}
