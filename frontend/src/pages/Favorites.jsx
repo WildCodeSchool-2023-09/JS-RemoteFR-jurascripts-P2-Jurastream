@@ -4,7 +4,7 @@ import MovieCard from "../components/Cards/MovieCard";
 import SerieCard from "../components/Cards/SerieCard";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
-import "./Favorites.scss";
+import "../components/Categories/Style.scss";
 
 function Favorites() {
   const { favorites } = useContext(FavoritesContext);
@@ -13,8 +13,8 @@ function Favorites() {
     <div className="home">
       <NavBar />
       <SearchBar />
-      <div className="favorites-container">
-        <h1>Mes Favoris</h1>
+      <div className="barre">
+        <h2>Mes Favoris</h2>
         {favorites.length > 0 ? (
           favorites.map((favorite) =>
             favorite.type === "movie" ? (

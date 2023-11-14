@@ -24,7 +24,7 @@ function UpcomingMovies() {
   }
 
   return (
-    <div>
+    <div className="barre">
       <h2>Upcoming Movies</h2>
       <CarouselMovies movies={upco} />
     </div>

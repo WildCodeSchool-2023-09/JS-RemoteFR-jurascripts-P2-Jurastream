@@ -1,12 +1,18 @@
-import NavBar from "../components/NavBar";
+import NavBarWelcome from "../components/NavBarWelcome";
+import "../components/NavBarWelcome.scss";
 
 function About() {
   return (
-    <div className="home">
-      <h1>My About Page</h1>
+    <div className="welcome">
       <div>
-        <NavBar />
+        <NavBarWelcome />
       </div>
+      <h1>
+        This site uses the TMDB API but is not endorsed or certified by TMDB.
+        <div>
+          <img src="src/assets/TMDB.png" alt="Logo" />
+        </div>
+      </h1>
     </div>
   );
 }

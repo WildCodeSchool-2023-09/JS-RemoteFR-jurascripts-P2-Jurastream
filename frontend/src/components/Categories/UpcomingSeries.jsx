@@ -24,7 +24,7 @@ function UpcomingSeries() {
   }
 
   return (
-    <div>
+    <div className="barre">
       <h2>Series On The Air</h2>
       <CarouselSeries series={upco} />
     </div>
