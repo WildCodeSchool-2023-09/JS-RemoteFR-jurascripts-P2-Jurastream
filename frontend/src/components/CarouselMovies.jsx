@@ -1,54 +1,52 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import MovieCard from "./Cards/MovieCard";
-import "./Carrousel.scss";
+import "./Carousel.scss";
 
 function CarouselMovies({ movies }) {
-  const [movieIndex, setMovieIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleClickNext = () => {
-    setMovieIndex((movieIndex + 1) % (movies.length - 5));
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, movies.length - 5));
   };
 
-  const handleClickPrevious = () => {
-    setMovieIndex((movieIndex - 1) % (movies.length - 5));
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
-  if (movies.length <= 0) {
-    return <>pas d'image</>;
-  }
+  const visibleMovies = movies.slice(currentIndex, currentIndex + 5);
 
   return (
-    <div>
+    <div className="carousel-container">
+      <button
+        type="button"
+        className="carousel-button left-button"
+        onClick={handlePrevious}
+      >
+        &#9664;
+      </button>
       <div className="media-list">
-        <MovieCard movieId={movies[movieIndex].id} />
-        <MovieCard movieId={movies[movieIndex + 1].id} />
-        <MovieCard movieId={movies[movieIndex + 2].id} />
-        <MovieCard movieId={movies[movieIndex + 3].id} />
-        <MovieCard movieId={movies[movieIndex + 4].id} />
+        {visibleMovies.map((movie) => (
+          <MovieCard key={movie.id} movieId={movie.id} />
+        ))}
       </div>
-      <div>
-        <button
-          type="button"
-          className="left-button"
-          onClick={handleClickPrevious}
-        >
-          &lt;
-        </button>
-        <button
-          type="button"
-          className="right-button"
-          onClick={handleClickNext}
-        >
-          &gt;
-        </button>
-      </div>
+      <button
+        type="button"
+        className="carousel-button right-button"
+        onClick={handleNext}
+      >
+        &#9654;
+      </button>
     </div>
   );
 }
 
 CarouselMovies.propTypes = {
-  movies: PropTypes.arrayOf.isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default CarouselMovies;

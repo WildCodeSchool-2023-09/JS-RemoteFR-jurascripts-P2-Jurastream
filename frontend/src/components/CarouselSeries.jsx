@@ -1,54 +1,52 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import SerieCard from "./Cards/SerieCard";
-import "./Carrousel.scss";
+import "./Carousel.scss";
 
 function CarouselSeries({ series }) {
-  const [serieIndex, setSerieIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleClickNext = () => {
-    setSerieIndex((serieIndex + 1) % (series.length - 5));
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, series.length - 5));
   };
 
-  const handleClickPrevious = () => {
-    setSerieIndex((serieIndex - 1) % (series.length - 5));
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
-  if (series.length <= 0) {
-    return <>pas d'image</>;
-  }
+  const visibleSeries = series.slice(currentIndex, currentIndex + 5);
 
   return (
-    <div>
+    <div className="carousel-container">
+      <button
+        type="button"
+        className="carousel-button left-button"
+        onClick={handlePrevious}
+      >
+        &#9664;
+      </button>
       <div className="media-list">
-        <SerieCard serieId={series[serieIndex].id} />
-        <SerieCard serieId={series[serieIndex + 1].id} />
-        <SerieCard serieId={series[serieIndex + 2].id} />
-        <SerieCard serieId={series[serieIndex + 3].id} />
-        <SerieCard serieId={series[serieIndex + 4].id} />
+        {visibleSeries.map((serie) => (
+          <SerieCard key={serie.id} serieId={serie.id} />
+        ))}
       </div>
-      <div>
-        <button
-          type="button"
-          className="left-button"
-          onClick={handleClickPrevious}
-        >
-          &lt;
-        </button>
-        <button
-          type="button"
-          className="right-button"
-          onClick={handleClickNext}
-        >
-          &gt;
-        </button>
-      </div>
+      <button
+        type="button"
+        className="carousel-button right-button"
+        onClick={handleNext}
+      >
+        &#9654;
+      </button>
     </div>
   );
 }
 
 CarouselSeries.propTypes = {
-  series: PropTypes.arrayOf.isRequired,
+  series: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default CarouselSeries;
