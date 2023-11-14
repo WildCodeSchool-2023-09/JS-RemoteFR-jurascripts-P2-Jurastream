@@ -13,10 +13,11 @@
     display: block;
     margin: auto;
     margin-top: 3rem;
+    width: 40%;
   }
 }
 section {
-  width: 100%;
+  width: 80%;
   max-width: 250px;
   min-height: 400px;
   padding: 10px 20px;
@@ -136,6 +137,13 @@ button {
       border-radius: 50px;
       font-size: 1rem;
       margin-top: 3rem;
+    }
+
+    img {
+      display: block;
+      margin: auto;
+      margin-top: 3rem;
+      width: 10%;
     }
   }
 }
