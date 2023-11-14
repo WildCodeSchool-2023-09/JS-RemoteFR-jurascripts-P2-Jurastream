@@ -106,7 +106,7 @@ function SerieCard({ serieId }) {
           ♥
         </button>
       </div>
-      <InfoCard serie={serieDetails} onClose={() => setShowInfo(false)} />
+      <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
     </div>
   );
 }
