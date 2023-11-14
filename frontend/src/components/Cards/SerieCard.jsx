@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./MediaCard.scss";
-import InfoCard from "../InfoCard";
+import "./SerieCard.scss";
+import InfoCardSerie from "../InfoCardSerie";
 import { FavoritesContext } from "../FavoritesContext";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
@@ -82,14 +82,14 @@ function SerieCard({ serieId }) {
   };
 
   return (
-    <div
-      className="media-card"
-      onClick={toggleInfoCard}
-      onKeyDown={handleKeyPress}
-      tabIndex={0}
-      role="button"
-    >
-      <div className="poster_image">
+    <div className="serie-card">
+      <div
+        className="poster_image"
+        onClick={toggleInfoCard}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+        role="button"
+      >
         {posterPath && (
           <img
             src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
@@ -106,7 +106,12 @@ function SerieCard({ serieId }) {
           ♥
         </button>
       </div>
-      <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
+      {showInfo && (
+        <InfoCardSerie
+          serie={serieDetails}
+          onClose={() => setShowInfo(false)}
+        />
+      )}
     </div>
   );
 }

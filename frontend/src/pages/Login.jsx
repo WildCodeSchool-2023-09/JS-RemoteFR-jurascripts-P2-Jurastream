@@ -56,7 +56,7 @@ function Login() {
   };
 
   return (
-    <body>
+    <div className="page-container">
       <div className="login">
         <img src={Logo} alt="logo" />
         <section>
@@ -135,7 +135,7 @@ function Login() {
           </form>
         </section>
       </div>
-    </body>
+    </div>
   );
 }
 

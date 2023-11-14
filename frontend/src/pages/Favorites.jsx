@@ -37,13 +37,15 @@ function Favorites() {
       <div className="barre">
         <h2>Séries</h2>
       </div>
-      {serieFavorites.length > 0 ? (
-        serieFavorites.map((favorite) => (
-          <SerieCard key={favorite.id} serieId={favorite.id} />
-        ))
-      ) : (
-        <p>Aucune série favorite ajoutée.</p>
-      )}
+      <div className="favorite-container">
+        {serieFavorites.length > 0 ? (
+          serieFavorites.map((favorite) => (
+            <SerieCard key={favorite.id} serieId={favorite.id} />
+          ))
+        ) : (
+          <p>Aucune série favorite ajoutée.</p>
+        )}
+      </div>
     </div>
   );
 }

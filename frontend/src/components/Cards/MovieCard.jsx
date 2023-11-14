@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./MediaCard.scss";
-import InfoCard from "../InfoCard";
+import "./MovieCard.scss";
+import InfoCardMovie from "../InfoCardMovie";
 import { FavoritesContext } from "../FavoritesContext";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
@@ -77,14 +77,14 @@ function MovieCard({ movieId }) {
   };
 
   return (
-    <div
-      className="media-card"
-      onClick={toggleInfoCard}
-      onKeyDown={handleKeyPress}
-      tabIndex={0}
-      role="button"
-    >
-      <div className="poster_image">
+    <div className="movie-card">
+      <div
+        className="poster_image"
+        onClick={toggleInfoCard}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+        role="button"
+      >
         {posterPath && (
           <img
             src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
@@ -102,7 +102,10 @@ function MovieCard({ movieId }) {
         </button>
       </div>
       {showInfo && (
-        <InfoCard movie={movieDetails} onClose={() => setShowInfo(false)} />
+        <InfoCardMovie
+          movie={movieDetails}
+          onClose={() => setShowInfo(false)}
+        />
       )}
     </div>
   );
