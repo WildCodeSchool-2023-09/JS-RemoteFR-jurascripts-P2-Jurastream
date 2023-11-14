@@ -32,6 +32,7 @@ function SerieCard({ serieId }) {
           (video) => video.type === "Trailer"
         )?.key,
         rating: response.data.vote_average,
+        type: "serie",
       });
     } catch (error) {
       console.error("Error fetching serie details:", error);
@@ -76,7 +77,7 @@ function SerieCard({ serieId }) {
     if (isFavorite) {
       removeFavorite(serieId);
     } else {
-      addFavorite({ id: serieId, ...serieDetails });
+      addFavorite({ id: serieId, type: "serie", ...serieDetails }, "serie");
     }
   };
 
@@ -95,9 +96,6 @@ function SerieCard({ serieId }) {
             alt="Serie Poster"
             className="serie-card__image"
           />
-        )}
-        {showInfo && (
-          <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
         )}
         <button
           type="button"

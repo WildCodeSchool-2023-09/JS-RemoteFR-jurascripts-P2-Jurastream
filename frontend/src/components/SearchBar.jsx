@@ -4,7 +4,7 @@ import "./SearchBar.scss";
 
 function SearchBar() {
   const [inputSearch, setInputSearch] = useState("");
-  const [movieList, setMovieList] = useState([]);
+  const [mediaList, setMediaList] = useState([]);
   const { addFavorite, removeFavorite, isFavorite } =
     useContext(FavoritesContext);
 
@@ -17,19 +17,34 @@ function SearchBar() {
       )
         .then((res) => res.json())
         .then((data) => {
-          setMovieList(data.results);
+          setMediaList(data.results);
         })
-        .catch((err) => console.info(err));
+        .catch((err) => console.error(err));
     } else {
-      setMovieList([]);
+      setMediaList([]);
     }
   }, [inputSearch]);
 
-  const handleFavoriteClick = (movie) => {
-    if (isFavorite(movie.id)) {
-      removeFavorite(movie.id);
+  const handleFavoriteClick = (media) => {
+    let mediaType = "other";
+
+    if (media.release_date) {
+      mediaType = "movie";
+    } else if (media.first_air_date) {
+      mediaType = "tv";
+    }
+
+    const isAlreadyFavorite = isFavorite(media.id);
+
+    const favoriteMedia = {
+      id: media.id,
+      type: mediaType,
+    };
+
+    if (isAlreadyFavorite) {
+      removeFavorite(media.id);
     } else {
-      addFavorite(movie);
+      addFavorite(favoriteMedia);
     }
   };
 
@@ -38,7 +53,7 @@ function SearchBar() {
       <div className="input-wrapper">
         <div className="search-box">
           <input
-            placeholder="Find your movie ..."
+            placeholder="Find your movie or series ..."
             value={inputSearch}
             onChange={(e) => setInputSearch(e.target.value)}
           />
@@ -46,26 +61,27 @@ function SearchBar() {
         </div>
       </div>
       <div className="search-result">
-        {movieList?.map(
-          (movie) =>
-            movie.poster_path && (
-              <div className="card-movie" key={movie.id}>
+        {mediaList?.map((media) => (
+          <div className="card-media" key={media.id}>
+            {media.poster_path && (
+              <>
                 <img
-                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                  alt={movie.title || movie.name}
+                  src={`https://image.tmdb.org/t/p/w300/${media.poster_path}`}
+                  alt={media.title || media.name}
                 />
                 <button
                   type="button"
-                  onClick={() => handleFavoriteClick(movie)}
+                  onClick={() => handleFavoriteClick(media)}
                   className={`favorite-button ${
-                    isFavorite(movie.id) ? "is-favorite" : ""
+                    isFavorite(media.id) ? "is-favorite" : ""
                   }`}
                 >
                   ♥
                 </button>
-              </div>
-            )
-        )}
+              </>
+            )}
+          </div>
+        ))}
       </div>
     </>
   );

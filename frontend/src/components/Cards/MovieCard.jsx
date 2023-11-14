@@ -31,6 +31,7 @@ function MovieCard({ movieId }) {
           (video) => video.type === "Trailer"
         )?.key,
         rating: response.data.vote_average,
+        type: "movie",
       });
     } catch (error) {
       console.error("Error fetching movie details:", error);
@@ -38,7 +39,7 @@ function MovieCard({ movieId }) {
   };
 
   // Fetch de l'affiche du film
-  (async function fetchMoviePoster() {
+  const fetchMoviePoster = async () => {
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
@@ -47,7 +48,9 @@ function MovieCard({ movieId }) {
     } catch (error) {
       console.error("Error fetching movie poster:", error);
     }
-  })();
+  };
+
+  fetchMoviePoster();
 
   // Gestion de l'affichage de l'InfoCard
   const toggleInfoCard = () => {
@@ -65,11 +68,11 @@ function MovieCard({ movieId }) {
   };
   // Gestion du clic sur le cœur pour ajouter/supprimer des favoris
   const handleFavoriteClick = (e) => {
-    e.stopPropagation(); // Empêche le clic de se propager au parent
+    e.stopPropagation();
     if (isFavorite) {
       removeFavorite(movieId);
     } else {
-      addFavorite({ id: movieId, ...movieDetails });
+      addFavorite({ id: movieId, type: "movie", ...movieDetails }, "movie");
     }
   };
 

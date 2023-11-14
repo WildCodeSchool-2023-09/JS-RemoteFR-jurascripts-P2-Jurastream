@@ -33,7 +33,7 @@ img.loupe {
   display: flex;
 }
 
-.card-movie {
+.card-media {
   margin: 10px;
   border-radius: 20px;
   border: rgb(0, 0, 0) solid 1px;
@@ -42,29 +42,51 @@ img.loupe {
   position: relative;
   background-color: gray;
   cursor: pointer;
+
+  img {
+    border-radius: 20px;
+  }
 }
 
-.card-movie:hover {
+.card-media:hover {
   background-color: white;
   color: black;
 }
 
 .favorite-button {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   position: absolute;
-  top: 5px; // Là où on souhaite qu'il apparaisse sur la carte
-  right: 5px;
-  border: none;
+  top: 10px;
+  right: 10px;
   background: none;
+  border: none;
+  color: white;
+  font-size: 2.2rem;
   cursor: pointer;
-  color: #ff686b; // Couleur pour l'icône non favori
-  font-size: 1.5em; // Taille
+  outline: none;
 
-  &.is-favorite {
-    color: #ffd700; // Couleur pour l'icône favori
+  &:hover {
+    transform: scale(1.2);
   }
 }
+
+.favorite-button.is-favorite {
+  color: red;
+}
+
 @media screen and (min-width: 950px) {
-  .card-movie {
+  .card-media {
     margin: 10px;
     border-radius: 20px;
     border: rgb(0, 0, 0) solid 1px;
@@ -83,7 +105,7 @@ img.loupe {
 }
 
 @media screen and (max-width: 950px) and (min-width: 650px) {
-  .card-movie {
+  .card-media {
     margin: 10px;
     border-radius: 20px;
     border: rgb(0, 0, 0) solid 1px;
