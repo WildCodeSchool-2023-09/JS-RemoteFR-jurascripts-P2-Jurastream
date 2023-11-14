@@ -4,7 +4,7 @@ import "./Footer.scss";
 function Footer() {
   return (
     <footer className="footer">
-      <p> Prasanna / Alexis / Sandrine / Valentin | © Juraciné : 2023</p>
+      <p> © Juraciné : 2023 | Legal Mention | Contact </p>
     </footer>
   );
 }

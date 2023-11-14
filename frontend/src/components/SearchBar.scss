@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee");
+
 .search-box {
   background-color: #ffefda;
   border-radius: 10px;
@@ -8,7 +10,7 @@
   padding: 10px 20px;
   height: 30px;
   justify-content: center;
-  width: 400px;
+  width: 80%;
   margin: auto;
   position: relative;
 }
@@ -29,7 +31,7 @@ img.loupe {
   width: 30px;
 }
 .search-result {
-  padding: 100px;
+  padding: 10px;
   display: flex;
 }
 
@@ -86,6 +88,10 @@ img.loupe {
 }
 
 @media screen and (min-width: 950px) {
+  .search-box {
+    width: 500px;
+  }
+
   .card-media {
     margin: 10px;
     border-radius: 20px;
@@ -98,13 +104,16 @@ img.loupe {
   }
 
   .search-result {
-    padding: 100px;
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 950px) and (min-width: 650px) {
+  .search-box {
+    width: 500px;
+  }
   .card-media {
     margin: 10px;
     border-radius: 20px;
