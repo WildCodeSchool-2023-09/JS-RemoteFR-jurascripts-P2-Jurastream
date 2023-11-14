@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./main.scss";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -9,17 +10,23 @@ import Login from "./pages/Login";
 import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Favorites from "./pages/Favorites";
+import Welcome from "./pages/Welcome";
+import About from "./pages/About";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <Welcome />,
+      },
+      {
         path: "/home",
         element: <Home />,
       },
       {
-        path: "/",
+        path: "/login",
         element: <Login />,
       },
       {
@@ -33,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/favorites",
         element: <Favorites />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },

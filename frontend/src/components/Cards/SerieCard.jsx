@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import "./SerieCard.scss";
+import "./MediaCard.scss";
 import InfoCard from "../InfoCard";
+import { FavoritesContext } from "../FavoritesContext";
 
-const apiKey = "877c7f202cabf1967d1a3d34b335b3d7";
+const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
 function SerieCard({ serieId }) {
   const [posterPath, setPosterPath] = useState("");
   const [showInfo, setShowInfo] = useState(false);
   const [serieDetails, setSerieDetails] = useState({});
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
+
+  const isFavorite = favorites.some((favorite) => favorite.id === serieId);
 
   // FETCH DES INFOS POUR INFOCARD
 
@@ -26,6 +31,8 @@ function SerieCard({ serieId }) {
         trailerKey: response.data.videos.results.find(
           (video) => video.type === "Trailer"
         )?.key,
+        rating: response.data.vote_average,
+        type: "serie",
       });
     } catch (error) {
       console.error("Error fetching serie details:", error);
@@ -47,12 +54,15 @@ function SerieCard({ serieId }) {
 
   fetchSeriePoster();
 
+  // Gestion de l'affichage de l'InfoCard
+
   const toggleInfoCard = () => {
     if (!showInfo) {
       fetchSerieDetails();
     }
     setShowInfo(!showInfo);
   };
+  // Gestion du clavier pour l'accessibilité
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -60,24 +70,43 @@ function SerieCard({ serieId }) {
     }
   };
 
+  // Gestion du clic sur le cœur pour ajouter/supprimer des favoris
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    if (isFavorite) {
+      removeFavorite(serieId);
+    } else {
+      addFavorite({ id: serieId, type: "serie", ...serieDetails }, "serie");
+    }
+  };
+
   return (
     <div
-      className="serie-card"
+      className="media-card"
       onClick={toggleInfoCard}
       onKeyDown={handleKeyPress}
       tabIndex={0}
       role="button"
     >
-      {posterPath && (
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
-          alt="Serie Poster"
-          className="serie-card__image"
-        />
-      )}
-      {showInfo && (
-        <InfoCard movie={serieDetails} onClose={() => setShowInfo(false)} />
-      )}
+      <div className="poster_image">
+        {posterPath && (
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
+            alt="Serie Poster"
+            className="serie-card__image"
+          />
+        )}
+        <button
+          type="button"
+          className={`favorite-button ${isFavorite ? "is-favorite" : ""}`}
+          onClick={handleFavoriteClick}
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          ♥
+        </button>
+      </div>
+      <InfoCard serie={serieDetails} onClose={() => setShowInfo(false)} />
     </div>
   );
 }

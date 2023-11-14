@@ -1,0 +1,53 @@
+.favorites-container {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  display: grid;
+  grid-template-columns: (1fr, 1fr, 1fr 1fr, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+
+  .media-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #262626;
+    color: #fff;
+    position: relative;
+
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .favorite-heart {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: red;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+
+    &:hover {
+      color: #f8c20e;
+    }
+  }
+}

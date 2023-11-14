@@ -1,22 +1,35 @@
+import React from "react";
+import PropTypes from "prop-types";
 import "./Rating.scss";
 
-function Rating() {
+function Rating({ rating }) {
+  if (rating === undefined) {
+    return null;
+  }
+
+  const starRating = Math.round(rating / 2);
+  const uniqueId = rating.toString().replace(".", "_");
+
   return (
-    <figure>
-      <div className="rating">
-        <input type="radio" id="star5" name="rating" value="5" />
-        <label htmlFor="star5">‎</label>
-        <input type="radio" id="star4" name="rating" value="4" />
-        <label htmlFor="star4">‎</label>
-        <input type="radio" id="star3" name="rating" value="3" />
-        <label htmlFor="star3">‎</label>
-        <input type="radio" id="star2" name="rating" value="2" />
-        <label htmlFor="star2">‎</label>
-        <input type="radio" id="star1" name="rating" value="1" />
-        <label htmlFor="star1">‎</label>
-      </div>
-    </figure>
+    <div className="rating">
+      {[...Array(5)].map((_, index) => {
+        const key = `star-${uniqueId}-${index + 1}`;
+        return (
+          <span key={key} className={index < starRating ? "filled" : ""}>
+            ★
+          </span>
+        );
+      })}
+    </div>
   );
 }
+
+Rating.propTypes = {
+  rating: PropTypes.number,
+};
+
+Rating.defaultProps = {
+  rating: 0,
+};
 
 export default Rating;
