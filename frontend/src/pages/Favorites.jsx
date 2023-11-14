@@ -31,7 +31,7 @@ function Favorites() {
             <MovieCard key={favorite.id} movieId={favorite.id} />
           ))
         ) : (
-          <p>Aucun film favori ajouté.</p>
+          <p>No favorite movie added.</p>
         )}
       </div>
       <div className="barre">
@@ -43,7 +43,7 @@ function Favorites() {
             <SerieCard key={favorite.id} serieId={favorite.id} />
           ))
         ) : (
-          <p>Aucune série favorite ajoutée.</p>
+          <p>No favorite serie added.</p>
         )}
       </div>
     </div>
