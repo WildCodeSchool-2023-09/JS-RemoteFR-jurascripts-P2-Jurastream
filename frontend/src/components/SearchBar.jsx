@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { FavoritesContext } from "./FavoritesContext";
 import "./SearchBar.scss";
+import Loupe from "../assets/Loupe6.png";
 
 function SearchBar() {
   const [inputSearch, setInputSearch] = useState("");
@@ -57,7 +58,7 @@ function SearchBar() {
             value={inputSearch}
             onChange={(e) => setInputSearch(e.target.value)}
           />
-          <img className="loupe" src="src/assets/Loupe6.png" alt="loupe" />
+          <img className="loupe" src={Loupe} alt="loupe" />
         </div>
       </div>
       <div className="search-result">
