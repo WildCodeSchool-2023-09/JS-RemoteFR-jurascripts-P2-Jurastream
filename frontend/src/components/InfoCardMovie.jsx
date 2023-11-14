@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import Rating from "./Rating";
-import "./InfoCard.scss";
+import "./InfoCardMovie.scss";
 import closeIcon from "../assets/closeIcon.png";
 
-function InfoCard({ movie, onClose }) {
+function InfoCardMovie({ movie, onClose }) {
   if (!movie) {
     return null;
   }
@@ -63,7 +63,7 @@ function InfoCard({ movie, onClose }) {
   );
 }
 
-InfoCard.propTypes = {
+InfoCardMovie.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string,
     overview: PropTypes.string,
@@ -81,8 +81,8 @@ InfoCard.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-InfoCard.defaultProps = {
+InfoCardMovie.defaultProps = {
   movie: null,
 };
 
-export default InfoCard;
+export default InfoCardMovie;

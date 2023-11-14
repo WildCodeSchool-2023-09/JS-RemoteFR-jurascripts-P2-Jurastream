@@ -1,11 +1,10 @@
 import React from "react";
+import "./Footer.scss";
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
-        <p> Prasanna / Alexis / Sandrine / Valentin | © Juraciné : 2023</p>
-      </div>
+      <p> Prasanna / Alexis / Sandrine / Valentin | © Juraciné : 2023</p>
     </footer>
   );
 }

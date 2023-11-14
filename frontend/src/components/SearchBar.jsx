@@ -32,7 +32,7 @@ function SearchBar() {
     if (media.release_date) {
       mediaType = "movie";
     } else if (media.first_air_date) {
-      mediaType = "tv";
+      mediaType = "serie";
     }
 
     const isAlreadyFavorite = isFavorite(media.id);
