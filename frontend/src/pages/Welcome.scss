@@ -8,9 +8,17 @@
   background-size: cover;
   position: fixed;
 
+  h1 {
+    color: #ebbf85;
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 5rem;
+  }
+
   h2 {
     text-align: center;
-    margin-top: 20vh;
+    margin-top: 15vh;
   }
 
   input {
@@ -18,14 +26,13 @@
     font-size: 2rem;
     font-style: italic;
     text-align: center;
-    width: 60%;
+    width: 65%;
     color: #ffefdad1;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
     margin: auto;
     border: #ffefda2c 0.5px solid;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    position: relative;
   }
 }
 
@@ -36,7 +43,7 @@
     width: 100%;
     min-height: 100vh;
     background-position: center center;
-    opacity: 100%;
+    opacity: 90%;
 
     input {
       background-color: transparent;
@@ -51,5 +58,19 @@
       border: #ffefda2c 0.5px solid;
       font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     }
+
+    h1 {
+      color: #ebbf85;
+      font-style: italic;
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 10rem;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 15vh;
+    display: block;
   }
 }

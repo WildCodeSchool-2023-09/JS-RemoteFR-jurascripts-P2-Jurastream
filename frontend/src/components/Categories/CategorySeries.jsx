@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import CarouselSeries from "../CarouselSeries";
+import "./Style.scss";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
@@ -40,7 +41,7 @@ function CategorySeries() {
   }, [categoryButton]);
 
   return (
-    <div>
+    <div className="barre">
       <h2>Category of series</h2>
       <select onChange={(e) => setCategoryButton(e.target.value)}>
         {genres.map((genre) => (
