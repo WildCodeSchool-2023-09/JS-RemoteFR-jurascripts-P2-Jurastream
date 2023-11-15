@@ -20,7 +20,7 @@ function MovieCard({ movieId }) {
   const fetchMovieDetails = async () => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=credits,videos&language=fr-FR`
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=credits,videos`
       );
       setMovieDetails({
         title: response.data.title,

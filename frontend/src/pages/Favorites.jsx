@@ -6,6 +6,7 @@ import SerieCard from "../components/Cards/SerieCard";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
 import "./Favorites.scss";
+import Footer from "../components/Footer";
 
 function Favorites() {
   const { favorites } = useContext(FavoritesContext);
@@ -46,6 +47,7 @@ function Favorites() {
           <p>No favorite serie added.</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

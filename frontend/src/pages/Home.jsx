@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import UpcomingMovies from "../components/Categories/UpcomingMovies";
 import TrendingMovies from "../components/Categories/TrendingMovies";
 import TrendingSeries from "../components/Categories/TrendingSeries";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
           <UpcomingMovies />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
