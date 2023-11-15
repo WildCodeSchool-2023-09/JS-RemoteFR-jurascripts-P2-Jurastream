@@ -7,12 +7,16 @@
   background-size: cover;
   position: fixed;
 
+  .logo {
+    width: 35%;
+  }
+
   h1 {
     color: #ebbf85;
     font-style: italic;
     font-size: 0.8rem;
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 15vh;
   }
 
   h2 {
@@ -35,7 +39,12 @@
   }
 
   .TMDB {
-    margin-top: 10%;
+    padding-top: 5vh;
+    width: 60%;
+    margin: auto;
+  }
+  .footer {
+    margin-top: 42vh;
   }
 }
 
@@ -48,6 +57,9 @@
     background-position: center center;
     opacity: 90%;
 
+    .logo {
+      width: 12%;
+    }
     input {
       background-color: transparent;
       font-size: 2rem;
@@ -69,11 +81,14 @@
       text-align: center;
       margin-top: 10rem;
     }
-  }
 
-  h2 {
-    text-align: center;
-    margin-top: 15vh;
-    display: block;
+    h2 {
+      text-align: center;
+      margin-top: 15vh;
+      display: block;
+    }
+    .footer {
+      margin-top: 35vh;
+    }
   }
 }

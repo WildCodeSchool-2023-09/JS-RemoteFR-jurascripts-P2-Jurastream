@@ -1,6 +1,6 @@
 .info-card {
   display: grid;
-  grid-template-columns: 1fr 1fr; // Divise le conteneur en deux colonnes
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "title title"
     "synopsis trailer"
@@ -25,12 +25,12 @@
   z-index: 999;
   width: 100%;
   max-width: 40%;
-  background-color: rgba(30, 4, 4, 0.85);
+  background-color: rgba(30, 4, 4);
   border-radius: 20px;
   padding: 3%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: whitesmoke;
-  gap: 2%; // Espace entre les éléments du grid
+  gap: 2%;
 
   .close-button {
     position: absolute;
@@ -48,7 +48,6 @@
     height: auto;
   }
   .serieTitle {
-    background-color: rgba(124, 10, 10, 0.323);
     margin: auto;
     width: 60%;
     padding: 1rem;
@@ -57,7 +56,9 @@
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    color: whitesmoke;
+    color: #ebbf85;
+    box-shadow: 0px 0px 6px #ebbf85;
+    background-color: #1a1a1a;
   }
 
   .synopsis {
