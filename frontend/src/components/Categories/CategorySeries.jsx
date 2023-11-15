@@ -42,7 +42,7 @@ function CategorySeries() {
 
   return (
     <div className="barre">
-      <h2>Category of series</h2>
+      <h2 className="cross-bar">Category of series</h2>
       <select
         className="slider-button"
         onChange={(e) => setCategoryButton(e.target.value)}
