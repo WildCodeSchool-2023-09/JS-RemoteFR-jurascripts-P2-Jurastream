@@ -3,25 +3,28 @@
   margin-bottom: 40px;
 }
 
-.favorite-container {
+.favorite-container-movie,
+.favorite-container-serie {
   background-color: #1a1a1a;
   display: flex;
   gap: 2%;
   margin-left: 3%;
   margin-right: 3%;
+  justify-content: space-around;
+  position: relative;
 
   p {
     color: whitesmoke;
     margin: auto;
   }
 
-  .movie-card:not {
+  .movie-card,
+  .serie-card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     background-color: #262626;
     color: #fff;
     width: 20%;
-    justify-content: space-between;
 
     img {
       width: 100%;
@@ -39,7 +42,8 @@
     }
   }
 
-  .info-card {
+  .info-card-serie,
+  .info-card-movie {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -66,7 +70,7 @@
     z-index: 999;
     width: 100%;
     max-width: 40%;
-    background-color: rgba(30, 4, 4, 0.85);
+    background-color: rgba(30, 4, 4);
     border-radius: 20px;
     padding: 3%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -88,8 +92,8 @@
       width: 30px;
       height: auto;
     }
-    .movieTitle {
-      background-color: rgba(124, 10, 10, 0.323);
+    .movieTitle,
+    .serieTitle {
       margin: auto;
       width: 60%;
       padding: 1rem;
@@ -98,7 +102,9 @@
       font-size: 2rem;
       font-weight: bold;
       text-align: center;
-      color: whitesmoke;
+      color: #ebbf85;
+      box-shadow: 0px 0px 6px #ebbf85;
+      background-color: #1a1a1a;
     }
 
     .synopsis {
@@ -161,11 +167,16 @@
     .rating {
       margin: auto;
     }
+    .movieTitle,
+    .serieTitle {
+      font-size: 1rem;
+    }
   }
 }
 
 @media screen and (max-width: 650px) {
-  .favorite-container {
+  .favorite-container-movie,
+  .favorite-container-serie {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -179,10 +190,67 @@
       margin-top: 1rem;
     }
 
-    .info-card {
+    .info-card-movie,
+    .info-card-serie {
       display: flex;
       flex-direction: column;
-      min-width: 100vw;
+      min-width: 90vw;
+      padding: 10px 10px;
+      border-radius: 20px;
+
+      .synopsis {
+        display: none;
+      }
+
+      iframe {
+        margin: 0;
+        margin-top: 2rem;
+        width: 70%;
+        margin: auto;
+      }
+
+      .actors {
+        display: none;
+      }
+
+      .trailer {
+        display: none;
+        height: 20%;
+      }
+
+      .release {
+        margin-top: 2rem;
+        text-align: center;
+      }
+
+      .rating-title {
+        margin: 0;
+        margin-top: 2rem;
+      }
+      .rating {
+        justify-content: center;
+      }
+    }
+  }
+  .favorite-container-serie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .movie-card {
+      flex: 0 0 calc(30% - 1rem);
+      margin-top: 1rem;
+    }
+    .serie-card {
+      flex: 0 0 calc(30% - 1rem);
+      margin-top: 1rem;
+    }
+
+    .info-card-movie,
+    .info-card-serie {
+      display: flex;
+      flex-direction: column;
+      min-width: 90vw;
       padding: 10px 10px;
       border-radius: 20px;
 
