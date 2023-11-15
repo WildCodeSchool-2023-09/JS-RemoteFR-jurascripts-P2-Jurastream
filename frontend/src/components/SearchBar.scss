@@ -10,11 +10,13 @@
   padding: 10px 20px;
   height: 30px;
   justify-content: center;
-  width: 80%;
+  width: 85%;
   margin: auto;
   position: relative;
 }
-
+::placeholder {
+  color: #bfbdc7;
+}
 input {
   border: none;
   background-color: transparent;
