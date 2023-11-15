@@ -57,7 +57,7 @@ function InfoCardSerie({ serie, onClose }) {
           ))}
       </div>
       <p className="rating-title">
-        Note du film : <Rating rating={serie.rating} />
+        Note de la serie : <Rating rating={serie.rating} />
       </p>
     </div>
   );
