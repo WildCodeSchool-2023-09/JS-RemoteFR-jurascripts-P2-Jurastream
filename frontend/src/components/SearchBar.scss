@@ -49,6 +49,7 @@ img.loupe {
 
   img {
     border-radius: 20px;
+    width: auto;
   }
 }
 
@@ -131,5 +132,34 @@ img.loupe {
     padding: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .search-result {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 35px;
+    align-content: center;
+  }
+
+  .card-media {
+    position: relative;
+    right: 32%;
+    display: flex;
+    border-radius: 20px;
+    border: rgb(0, 0, 0) solid 1px;
+    width: 75%;
+    background-color: #ebbf85;
+    cursor: pointer;
+  }
+
+  img {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
   }
 }
