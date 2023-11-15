@@ -6,19 +6,8 @@ import Logo from "../assets/LOGO.png";
 function NavBar() {
   const [showLinks, setShowLinks] = useState(false);
 
-  // const handleShowLinks = () => {
-  //   setShowLinks(!showLinks);
-  // };
-
-  const toggleMenuBuger = () => {
+  const handleShowLinks = () => {
     setShowLinks(!showLinks);
-  };
-
-  // Gestion du clavier pour l'accessibilité
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      toggleMenuBuger();
-    }
   };
 
   return (
@@ -49,14 +38,13 @@ function NavBar() {
             </Link>
           </li>
         </ul>
-        <div
-          onClick={toggleMenuBuger}
-          onKeyDown={handleKeyPress}
-          tabIndex={0}
-          role="button"
+        <button
+          className="navbar_burger"
+          type="button"
+          onClick={handleShowLinks}
         >
-          <span className="burger-bar" />
-        </div>
+          <div className="burger-bar" />
+        </button>
       </div>
     </nav>
   );
