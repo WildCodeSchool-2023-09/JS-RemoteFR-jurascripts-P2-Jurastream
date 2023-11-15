@@ -1,6 +1,6 @@
 .info-card {
   display: grid;
-  grid-template-columns: 1fr 1fr; // Divise le conteneur en deux colonnes
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "title title"
     "synopsis trailer"
@@ -30,7 +30,7 @@
   padding: 3%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: whitesmoke;
-  gap: 2%; // Espace entre les éléments du grid
+  gap: 2%;
 
   .close-button {
     position: absolute;
