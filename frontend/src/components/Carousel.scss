@@ -90,20 +90,22 @@
 }
 
 @media screen and (max-width: 650px) {
-  .media-list {
-    justify-content: center;
-  }
+  .carousel-container {
+    .media-list {
+      justify-content: center;
+    }
 
-  .movie-card:nth-child(n + 2) {
-    display: none;
-  }
+    .movie-card:nth-child(n + 2) {
+      display: none;
+    }
 
-  .serie-card:nth-child(n + 2) {
-    display: none;
-  }
+    .serie-card:nth-child(n + 2) {
+      display: none;
+    }
 
-  .carousel-button:hover {
-    background-color: #ebbf85;
-    opacity: 100;
+    .carousel-button:hover {
+      background-color: #ebbf85;
+      opacity: 100;
+    }
   }
 }
