@@ -26,7 +26,7 @@ function Favorites() {
         <h1>My Favorite</h1>
         <h2>Movies</h2>
       </div>
-      <div className="favorite-container">
+      <div className="favorite-container-movie">
         {movieFavorites.length > 0 ? (
           movieFavorites.map((favorite) => (
             <MovieCard key={favorite.id} movieId={favorite.id} />
@@ -38,7 +38,7 @@ function Favorites() {
       <div className="barre">
         <h2>Series</h2>
       </div>
-      <div className="favorite-container">
+      <div className="favorite-container-serie">
         {serieFavorites.length > 0 ? (
           serieFavorites.map((favorite) => (
             <SerieCard key={favorite.id} serieId={favorite.id} />

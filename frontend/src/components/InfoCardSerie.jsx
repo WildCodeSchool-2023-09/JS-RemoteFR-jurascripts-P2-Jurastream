@@ -19,7 +19,7 @@ function InfoCardSerie({ serie, onClose }) {
   const formattedReleaseDate = formatDate(serie.release_date);
 
   return (
-    <div className="info-card">
+    <div className="info-card-serie">
       <button
         type="button"
         className="close-button"
@@ -44,7 +44,7 @@ function InfoCardSerie({ serie, onClose }) {
       )}
       <div className="actors">
         {serie.cast &&
-          serie.cast.slice(0, 6).map((actor) => (
+          serie.cast.slice(0, 2).map((actor) => (
             <div key={actor.id} className="actor">
               {actor.profile_path && (
                 <img
