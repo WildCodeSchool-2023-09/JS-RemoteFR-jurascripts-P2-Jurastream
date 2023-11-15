@@ -122,3 +122,46 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    padding: 10px 10px;
+    border-radius: 20px;
+
+    .synopsis {
+      display: none;
+    }
+
+    iframe {
+      margin: 0;
+      margin-top: 2rem;
+      width: 70%;
+      margin: auto;
+    }
+
+    .actors {
+      display: none;
+    }
+
+    .trailer {
+      display: none;
+      height: 20%;
+    }
+
+    .release {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .rating-title {
+      margin: 0;
+      margin-top: 2rem;
+    }
+    .rating {
+      justify-content: center;
+    }
+  }
+}

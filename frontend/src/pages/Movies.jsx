@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 
 function Movies() {
   return (
-    <div className="home">
+    <div className="movies">
       <NavBar />
       <SearchBar />
       <TrendingMovies />
