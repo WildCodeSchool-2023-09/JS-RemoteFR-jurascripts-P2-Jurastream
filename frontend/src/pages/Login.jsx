@@ -58,7 +58,7 @@ function Login() {
   return (
     <div className="page-container">
       <div className="login">
-        <img src={Logo} alt="logo" />
+        <img className="logo" src={Logo} alt="logo" />
         <section>
           <p
             ref={errRef}

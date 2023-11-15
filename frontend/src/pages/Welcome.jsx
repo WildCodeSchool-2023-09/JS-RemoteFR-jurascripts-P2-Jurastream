@@ -11,7 +11,7 @@ function Welcome() {
           <NavBarWelcome />
         </nav>
         <h2>
-          <img src={Logo} alt="logo" />
+          <img className="logo" src={Logo} alt="logo" />
         </h2>
         <form>
           <input name="uncontrolled" placeholder="Subscribe with @" />

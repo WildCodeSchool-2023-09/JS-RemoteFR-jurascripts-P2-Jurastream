@@ -21,7 +21,7 @@ function SerieCard({ serieId }) {
   const fetchSerieDetails = async () => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/tv/${serieId}?api_key=${apiKey}&append_to_response=credits,videos&language=fr-FR`
+        `https://api.themoviedb.org/3/tv/${serieId}?api_key=${apiKey}&append_to_response=credits,videos`
       );
       setSerieDetails({
         title: response.data.name,
