@@ -42,6 +42,7 @@ function NavBar() {
           className="navbar_burger"
           type="button"
           onClick={handleShowLinks}
+          aria-label={showLinks ? "Close Burger" : "Open Burger"}
         >
           <div className="burger-bar" />
         </button>
