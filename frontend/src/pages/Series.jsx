@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 function Series() {
   return (
-    <div className="home">
+    <div className="series">
       <NavBar />
       <SearchBar />
       <TrendingSeries />
