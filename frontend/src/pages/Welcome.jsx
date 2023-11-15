@@ -14,7 +14,11 @@ function Welcome() {
           <img className="logo" src={Logo} alt="logo" />
         </h2>
         <form>
-          <input name="uncontrolled" placeholder="Subscribe with @" />
+          <input
+            className="input-sub"
+            name="uncontrolled"
+            placeholder="Subscribe with @"
+          />
         </form>
       </div>
     </div>

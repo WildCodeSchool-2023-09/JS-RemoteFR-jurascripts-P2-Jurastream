@@ -11,9 +11,7 @@ function About() {
       </div>
       <h1>
         This site uses the TMDB API but is not endorsed or certified by TMDB.
-        <div className="TMDB">
-          <img src={TMDB} alt="Logo" />
-        </div>
+        <img className="TMDB" src={TMDB} alt="Logo" />
       </h1>
       <Footer />
     </div>
