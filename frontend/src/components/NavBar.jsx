@@ -43,7 +43,7 @@ function NavBar() {
           type="button"
           onClick={handleShowLinks}
         >
-          <span className="burger-bar">!</span>
+          <span className="burger-bar">‎</span>
         </button>
       </div>
     </nav>

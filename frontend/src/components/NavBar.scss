@@ -52,6 +52,7 @@
     background-color: black;
     visibility: hidden;
     transition: all 0.8s ease-out;
+    z-index: 999;
   }
 
   img {
@@ -86,6 +87,7 @@
     position: fixed;
     top: 1rem;
     right: 1rem;
+    z-index: 999;
   }
 
   .navbar_burger:hover {
@@ -149,45 +151,5 @@
   }
   .show-nav .slideInDown-4 {
     transition: all 1.3s ease-out;
-  }
-}
-
-@media screen and (min-width: 650px) {
-  .navbar {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    width: 100%;
-    background-color: transparent;
-    min-height: 50px;
-    font-size: 1.5rem;
-    color: #ebbf85;
-
-    .navbar_links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .navbar_link {
-      padding: 0 0.3rem;
-      color: inherit;
-    }
-
-    .navbar_burger {
-      width: 40px;
-      height: 40px;
-      background: transparent;
-      border: none;
-      color: inherit;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-family: "AbeeZee", sans-serif;
-    }
   }
 }

@@ -22,8 +22,8 @@ function Favorites() {
       <NavBar />
       <SearchBar />
       <div className="barre">
-        <h1>Mes Favoris</h1>
-        <h2>Films</h2>
+        <h1>My Favorite</h1>
+        <h2>Movies</h2>
       </div>
       <div className="favorite-container">
         {movieFavorites.length > 0 ? (
@@ -35,7 +35,7 @@ function Favorites() {
         )}
       </div>
       <div className="barre">
-        <h2>Séries</h2>
+        <h2>Series</h2>
       </div>
       <div className="favorite-container">
         {serieFavorites.length > 0 ? (
