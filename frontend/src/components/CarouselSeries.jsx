@@ -35,7 +35,7 @@ function CarouselSeries({ series }) {
         className="carousel-button right-button"
         onClick={handleNext}
       >
-        &#9654;
+        &#9664;
       </button>
     </div>
   );
