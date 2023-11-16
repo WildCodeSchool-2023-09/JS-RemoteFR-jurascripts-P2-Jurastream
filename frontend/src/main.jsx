@@ -11,10 +11,12 @@ import Series from "./pages/Series";
 import Favorites from "./pages/Favorites";
 import Welcome from "./pages/Welcome";
 import About from "./pages/About";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

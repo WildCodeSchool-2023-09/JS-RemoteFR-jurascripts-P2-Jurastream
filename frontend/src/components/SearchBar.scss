@@ -137,7 +137,6 @@ img.loupe {
 
 @media screen and (max-width: 650px) {
   .search-result {
-    padding: 100px;
     display: grid;
     grid-template-columns: 1fr;
     margin-left: 35px;
@@ -146,7 +145,6 @@ img.loupe {
 
   .card-media {
     position: relative;
-    right: 32%;
     display: flex;
     border-radius: 20px;
     border: rgb(0, 0, 0) solid 1px;

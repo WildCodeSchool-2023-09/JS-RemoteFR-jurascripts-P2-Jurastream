@@ -12,8 +12,8 @@ function NavBar() {
 
   return (
     <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"} `}>
-      <Link to="/home">
-        <img src={Logo} alt="logo" />
+      <Link className="home-link" to="/home">
+        <img className="logo" src={Logo} alt="logo" />
       </Link>
       <div>
         <ul className="navbar_links">
