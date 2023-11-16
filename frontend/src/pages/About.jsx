@@ -1,5 +1,7 @@
 import NavBarWelcome from "../components/NavBarWelcome";
 import "../components/NavBarWelcome.scss";
+import TMDB from "../assets/TMDB.png";
+import Footer from "../components/Footer";
 
 function About() {
   return (
@@ -9,10 +11,9 @@ function About() {
       </div>
       <h1>
         This site uses the TMDB API but is not endorsed or certified by TMDB.
-        <div>
-          <img src="src/assets/TMDB.png" alt="Logo" />
-        </div>
+        <img className="TMDB" src={TMDB} alt="Logo" />
       </h1>
+      <Footer />
     </div>
   );
 }

@@ -42,8 +42,11 @@ function CategorySeries() {
 
   return (
     <div className="barre">
-      <h2>Category of series</h2>
-      <select onChange={(e) => setCategoryButton(e.target.value)}>
+      <h2 className="cross-bar">Category of series</h2>
+      <select
+        className="slider-button"
+        onChange={(e) => setCategoryButton(e.target.value)}
+      >
         {genres.map((genre) => (
           <option key={genre.name} value={genre.id}>
             {genre.name}

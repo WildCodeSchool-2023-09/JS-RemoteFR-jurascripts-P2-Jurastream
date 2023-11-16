@@ -5,19 +5,17 @@ import "./Movies.scss";
 import CategoryMovies from "../components/Categories/CategoryMovies";
 import TrendingMovies from "../components/Categories/TrendingMovies";
 import UpcomingMovies from "../components/Categories/UpcomingMovies";
+import Footer from "../components/Footer";
 
 function Movies() {
   return (
-    <div className="home">
+    <div className="movies">
       <NavBar />
       <SearchBar />
-      <div className="family-section">
-        <TrendingMovies />
-      </div>
-      <div className="family-section">
-        <CategoryMovies />
-        <UpcomingMovies />
-      </div>
+      <TrendingMovies />
+      <CategoryMovies />
+      <UpcomingMovies />
+      <Footer />
     </div>
   );
 }

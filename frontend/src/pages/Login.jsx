@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Login.scss";
+import Logo from "../assets/LOGO.png";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%_-]).{8,23}$/;
@@ -55,9 +56,9 @@ function Login() {
   };
 
   return (
-    <body>
+    <div className="page-container">
       <div className="login">
-        <img src="./src/assets/LOGO.png" alt="logo" />
+        <img className="logo" src={Logo} alt="logo" />
         <section>
           <p
             ref={errRef}
@@ -134,7 +135,7 @@ function Login() {
           </form>
         </section>
       </div>
-    </body>
+    </div>
   );
 }
 

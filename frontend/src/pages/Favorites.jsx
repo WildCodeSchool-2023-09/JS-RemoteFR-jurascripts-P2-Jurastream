@@ -5,7 +5,8 @@ import MovieCard from "../components/Cards/MovieCard";
 import SerieCard from "../components/Cards/SerieCard";
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
-import "../components/Categories/Style.scss";
+import "./Favorites.scss";
+import Footer from "../components/Footer";
 
 function Favorites() {
   const { favorites } = useContext(FavoritesContext);
@@ -21,26 +22,32 @@ function Favorites() {
     <div className="home">
       <NavBar />
       <SearchBar />
-      <div className="favorites-container">
-        <h1>Mes Favoris</h1>
-        <h2>Films</h2>
+      <div className="barre">
+        <h1>My Favorite</h1>
+        <h2>Movies</h2>
+      </div>
+      <div className="favorite-container-movie">
         {movieFavorites.length > 0 ? (
           movieFavorites.map((favorite) => (
             <MovieCard key={favorite.id} movieId={favorite.id} />
           ))
         ) : (
-          <p>Aucun film favori ajouté.</p>
+          <p>No favorite movie added.</p>
         )}
-
-        <h2>Séries</h2>
+      </div>
+      <div className="barre">
+        <h2>Series</h2>
+      </div>
+      <div className="favorite-container-serie">
         {serieFavorites.length > 0 ? (
           serieFavorites.map((favorite) => (
             <SerieCard key={favorite.id} serieId={favorite.id} />
           ))
         ) : (
-          <p>Aucune série favorite ajoutée.</p>
+          <p>No favorite serie added.</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

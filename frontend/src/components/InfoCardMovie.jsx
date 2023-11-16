@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import Rating from "./Rating";
-import "./InfoCard.scss";
+import "./InfoCardMovie.scss";
 import closeIcon from "../assets/closeIcon.png";
 
-function InfoCard({ movie, onClose }) {
+function InfoCardMovie({ movie, onClose }) {
   if (!movie) {
     return null;
   }
@@ -19,7 +19,7 @@ function InfoCard({ movie, onClose }) {
   const formattedReleaseDate = formatDate(movie.release_date);
 
   return (
-    <div className="info-card">
+    <div className="info-card-movie">
       <button
         type="button"
         className="close-button"
@@ -32,7 +32,7 @@ function InfoCard({ movie, onClose }) {
         {movie.title}
       </h2>
       <p className="synopsis">{movie.overview}</p>
-      <p className="release">Date de sortie : {formattedReleaseDate}</p>
+      <p className="release">Release Date : {formattedReleaseDate}</p>
       {movie.trailerKey && (
         <iframe
           title="Trailer"
@@ -44,7 +44,7 @@ function InfoCard({ movie, onClose }) {
       )}
       <div className="actors">
         {movie.cast &&
-          movie.cast.slice(0, 6).map((actor) => (
+          movie.cast.slice(0, 2).map((actor) => (
             <div key={actor.id} className="actor">
               {actor.profile_path && (
                 <img
@@ -57,13 +57,13 @@ function InfoCard({ movie, onClose }) {
           ))}
       </div>
       <p className="rating-title">
-        Note du film : <Rating rating={movie.rating} />
+        Rating : <Rating rating={movie.rating} />
       </p>
     </div>
   );
 }
 
-InfoCard.propTypes = {
+InfoCardMovie.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string,
     overview: PropTypes.string,
@@ -81,8 +81,8 @@ InfoCard.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-InfoCard.defaultProps = {
+InfoCardMovie.defaultProps = {
   movie: null,
 };
 
-export default InfoCard;
+export default InfoCardMovie;

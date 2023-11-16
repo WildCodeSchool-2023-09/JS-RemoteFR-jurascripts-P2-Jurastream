@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import CarouselMovies from "../CarouselMovies";
+import "./Style.scss";
 
 const apiKey = "e50c3de532f2abaf6995340152fbbd02";
 
@@ -41,10 +42,13 @@ function CategoryMovies() {
 
   return (
     <div className="barre">
-      <h2>Category of movies</h2>
-      <select onChange={(e) => setCategoryButton(e.target.value)}>
+      <h2 className="cross-bar">Movies Category</h2>
+      <select
+        className="slider-button"
+        onChange={(e) => setCategoryButton(e.target.value)}
+      >
         {genres.map((genre) => (
-          <option key={genre.name} value={genre.id}>
+          <option className="slider-value" key={genre.name} value={genre.id}>
             {genre.name}
           </option>
         ))}

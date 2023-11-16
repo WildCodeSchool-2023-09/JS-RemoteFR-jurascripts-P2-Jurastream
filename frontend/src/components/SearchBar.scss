@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee");
+
 .search-box {
   background-color: #ffefda;
   border-radius: 10px;
@@ -8,11 +10,13 @@
   padding: 10px 20px;
   height: 30px;
   justify-content: center;
-  width: 400px;
+  width: 85%;
   margin: auto;
   position: relative;
 }
-
+::placeholder {
+  color: #bfbdc7;
+}
 input {
   border: none;
   background-color: transparent;
@@ -29,7 +33,7 @@ img.loupe {
   width: 30px;
 }
 .search-result {
-  padding: 100px;
+  padding: 10px;
   display: flex;
 }
 
@@ -40,11 +44,12 @@ img.loupe {
   width: 300px;
   padding: 5px;
   position: relative;
-  background-color: gray;
+  background-color: #ebbf85;
   cursor: pointer;
 
   img {
     border-radius: 20px;
+    width: auto;
   }
 }
 
@@ -86,6 +91,10 @@ img.loupe {
 }
 
 @media screen and (min-width: 950px) {
+  .search-box {
+    width: 500px;
+  }
+
   .card-media {
     margin: 10px;
     border-radius: 20px;
@@ -93,18 +102,21 @@ img.loupe {
     width: 300px;
     padding: 5px;
     position: relative;
-    background-color: gray;
+    background-color: #ebbf85;
     cursor: pointer;
   }
 
   .search-result {
-    padding: 100px;
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 950px) and (min-width: 650px) {
+  .search-box {
+    width: 500px;
+  }
   .card-media {
     margin: 10px;
     border-radius: 20px;
@@ -112,7 +124,7 @@ img.loupe {
     width: 200px;
     padding: 5px;
     position: relative;
-    background-color: gray;
+    background-color: #ebbf85;
     cursor: pointer;
   }
 
@@ -120,5 +132,34 @@ img.loupe {
     padding: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .search-result {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 35px;
+    align-content: center;
+  }
+
+  .card-media {
+    position: relative;
+    right: 32%;
+    display: flex;
+    border-radius: 20px;
+    border: rgb(0, 0, 0) solid 1px;
+    width: 75%;
+    background-color: #ebbf85;
+    cursor: pointer;
+  }
+
+  img {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
   }
 }
