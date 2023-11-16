@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  width: 100%;
   background-color: transparent;
   min-height: 50px;
   font-size: 1.5rem;
@@ -37,9 +36,16 @@
     margin: 0;
     font-family: "AbeeZee", sans-serif;
   }
+  .home-link {
+    display: flex;
+  }
+  .logo {
+    width: 25%;
+    margin: auto;
+  }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 650px) {
   .navbar_links {
     flex-direction: column;
     justify-content: center;
@@ -85,7 +91,7 @@
 
   .navbar_burger {
     display: block;
-    position: fixed;
+    position: absolute;
     top: 1rem;
     right: 1rem;
     z-index: 999;

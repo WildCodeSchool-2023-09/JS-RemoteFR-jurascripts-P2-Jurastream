@@ -7,10 +7,11 @@
 .favorite-container-serie {
   background-color: #1a1a1a;
   display: flex;
+  flex-wrap: wrap;
   gap: 2%;
   margin-left: 3%;
   margin-right: 3%;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
 
   p {
@@ -20,6 +21,8 @@
 
   .movie-card,
   .serie-card {
+    flex: 0 0 calc(11% - 1rem);
+    margin-top: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     background-color: #262626;
@@ -175,8 +178,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  .favorite-container-movie,
-  .favorite-container-serie {
+  .favorite-container-movie {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -185,13 +187,8 @@
       flex: 0 0 calc(30% - 1rem);
       margin-top: 1rem;
     }
-    .serie-card {
-      flex: 0 0 calc(30% - 1rem);
-      margin-top: 1rem;
-    }
 
-    .info-card-movie,
-    .info-card-serie {
+    .info-card-movie {
       display: flex;
       flex-direction: column;
       min-width: 90vw;
@@ -237,16 +234,11 @@
     flex-wrap: wrap;
     justify-content: space-around;
 
-    .movie-card {
-      flex: 0 0 calc(30% - 1rem);
-      margin-top: 1rem;
-    }
     .serie-card {
       flex: 0 0 calc(30% - 1rem);
       margin-top: 1rem;
     }
 
-    .info-card-movie,
     .info-card-serie {
       display: flex;
       flex-direction: column;

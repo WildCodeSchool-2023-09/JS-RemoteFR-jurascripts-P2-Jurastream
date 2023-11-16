@@ -9,7 +9,9 @@
 
   .logo {
     width: 35%;
+    margin-top: 1rem;
     margin-bottom: 2rem;
+    justify-content: space-around;
   }
 
   h1 {
@@ -23,18 +25,20 @@
   h2 {
     text-align: center;
     margin-top: 15vh;
+    display: flex;
   }
 
   .input-sub {
     background-color: transparent;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: italic;
     text-align: center;
     display: inline-block;
-    color: #ffefdad1;
+    color: #ebbf85;
     border-radius: 10px;
     padding: 15px;
     margin: auto;
+    margin-top: 2rem;
     border: #ffefda2c 0.5px solid;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     position: relative;
@@ -74,7 +78,7 @@
       font-style: italic;
       text-align: center;
       display: inline-block;
-      color: #ffefdad1;
+      color: #ebbf85;
       border-radius: 10px;
       padding: 15px;
       border: #ffefda2c 0.5px solid;
